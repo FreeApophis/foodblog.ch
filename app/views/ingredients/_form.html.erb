@@ -1,0 +1,15 @@
+<%= form_for(@ingredient, :html => {class: 'ui form'}) do |f| %>
+    <%= render 'validation_message', validation_object: @ingredient %>
+
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name, :placeholder => t('.name_description') %>
+    </div>
+    <div class="field">
+      <%= f.label :description %>
+      <%= f.text_field :description, :placeholder => t('.name_description') %>
+    </div>
+
+    <%= f.button class: 'ui primary button' %>
+    <%= link_to t(:cancel, scope: :generic), ingredients_path, class: 'ui secondary button' %>
+<% end %>

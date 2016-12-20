@@ -1,0 +1,14 @@
+<% context_title @recipe.name %>
+<% context_action t('.edit'), edit_recipe_path(@recipe), :write %>
+<% context_action t('.delete'), delete_modal(@recipe), :remove %>
+
+<h2><%= @recipe.name %></h2>
+
+<p>
+  <%= @recipe.description %>
+</p>
+
+<p>
+  <%= present(@recipe.author).avatar %>
+</p>
+

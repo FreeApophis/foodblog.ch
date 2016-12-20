@@ -1,0 +1,15 @@
+<div class="ui right vertical menu sidebar">
+  <div class="item">
+    <div class="header">Actions</div>
+    <div class="menu">
+      <%= yield(:actions) %>
+    </div>
+  </div>
+  <div class="item">
+    <div class="header">Administration</div>
+    <div class="menu">
+      <%= link_to 'Settings', settings_path, class: 'teal item' %>
+      <%= link_to 'Activities', activities_path, class: 'red item' %>
+    </div>
+  </div>
+</div>

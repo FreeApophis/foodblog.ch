@@ -1,0 +1,13 @@
+<h2><%= context_title @blog.title %></h2>
+<% context_action t('.edit'), edit_blog_path(@blog), :write %>
+<% context_action t('.delete'), delete_modal(@blog), :remove %>
+
+<% bl = present(@blog) %>
+
+<p>
+  <%= bl.formatted_teaser %>
+</p>
+
+<%= bl.formatted_text %>
+
+<%= render 'comments/comments', commentable: @blog, comment: @blog.comments.build %>

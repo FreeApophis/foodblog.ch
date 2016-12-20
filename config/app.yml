@@ -1,0 +1,14 @@
+# config/app.yml for rails-settings-cached
+
+defaults: &defaults
+  sitename: "Foodblog"
+  about: "About Text!"
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

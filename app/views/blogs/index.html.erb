@@ -1,0 +1,47 @@
+<% context_title t('.blogs') %>
+<% context_action t('.new_blog'), new_blog_path, :plus %>
+
+<div class="ui grid">
+  <div class="eleven wide column">
+    <div class="postlist">
+      <% @blogs.each do |blog| %>
+        <% bl = present(blog) %>
+        <div class="post-item boxed">
+          <div class="post-meta-top">
+            <%= bl.date_ribbon %>
+          </div>
+          <div class="post-image"><img src="post_img1.jpg" alt=""></div>
+          <div class="inner">
+            <div class="post-title">
+              <h2><%= bl.title_link %></h2>
+             </div>
+            <div class="post-desc">
+              <%= bl.teaser %>
+            </div>
+          </div>
+          <div class="post-meta-bot post-meta-links">
+            <ul class="clearfix">
+              <li class="post-meta post-view first">
+                <%= bl.view_index %>
+              </li>
+              <li class="post-meta post-comm">
+                <%= bl.comment_index %>
+              </li>
+              <li class="post-meta post-author">
+                <%= bl.author_index %>
+              </li>
+              <li class="post-meta post-read last">
+                <%= bl.read_more %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="five wide column">
+    <div class="ui piled segment">
+      <%= render 'activities/activities', activities: PublicActivity::Activity.order(created_at: :desc).first(5) %>
+    </div>
+  </div>
+</div>

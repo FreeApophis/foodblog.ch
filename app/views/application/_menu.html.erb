@@ -1,0 +1,37 @@
+<div id="main-menu" class="ui stackable secondary pointing menu">
+  <%#= active_menu_link root_path, t('.home'), :home %>
+  <%= active_menu_link blogs_path, t('.blog'), :newspaper %>
+  <%= active_menu_link recipes_path, t('.recipes'), :food %>
+  <%= active_menu_link ingredients_path, t('.ingredients'), :lab %>
+  <%#= active_menu_link images_path, t('.images'), :image %>
+
+
+  <div class="right menu">
+    <% if current_user %>
+      <%= link_to '#sign_out', class: 'ui sign_out item' do %>
+        <i class="sign out icon"></i>
+      <% end %>
+      <%= link_to current_user, class: 'item' do %>
+        <i class="user icon"></i>
+      <% end %>
+      <a class="admin item">
+        <i class="options icon"></i>
+      </a>
+    <% else %>
+      <%= link_to new_user_session_path, class: 'ui sign_in item' do %>
+        <i class="sign in icon"></i>
+        <%= t '.sign_in' %>
+      <% end %>
+    <% end %>
+    <%= render 'sign_out_modal' %>
+    <div class="ui category search item">
+      <%= form_tag(search_path, method: :get, class: 'ui form') do %>
+        <div class="ui transparent icon input">
+          <%= search_field_tag :q, params[:q], id: "main-search", class: "prompt", placeholder: 'Search' %>
+          <i class="search link icon"></i>
+       </div>
+        <% end %> 
+      <div class="results"></div>
+    </div>
+  </div>
+</div>

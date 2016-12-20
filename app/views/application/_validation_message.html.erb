@@ -1,0 +1,12 @@
+<% if validation_object.errors.any? %>
+    <div class="ui negative message">
+      <div class="header">
+        <%= pluralize(validation_object.errors.count, "error") %> <%= t '.prohibited' %>:
+      </div>
+      <ul class="list">
+        <% validation_object.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>

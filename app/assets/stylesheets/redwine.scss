@@ -1,0 +1,90 @@
+#foodcontainer {
+  box-shadow: 0.3rem 0.3rem 0.8rem black;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  border: solid 0.5rem darkred;
+  background-color: white;
+}
+
+@media only screen and (max-width: 767px) {
+  #foodcontainer {
+    border: 0;
+    margin: 0 !important;
+    box-shadow: none;
+  }
+}
+
+
+#redband {
+    background: darkred linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4));
+    margin-top: 1em;
+    display: block;
+    position: relative;
+    height: 180px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 40px;
+    z-index: -1;
+}
+
+#foodcontainer header {
+  height: 180px;
+  padding: 30px;
+  background: darkred repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 10px, rgba(0, 0, 0, 0.3) 10px, rgba(0, 0, 0, 0.3) 20px);
+}
+
+#foodcontainer header h1 {
+  font-family: daysregular, Verdana, Arial, Helvetica, sans-serif;
+  padding: 30px;
+  margin: 0;
+  margin-left: 150px;
+  color: white;
+  text-shadow: 3px 3px 2px black;
+}
+
+#main-menu {
+  margin-top: 0;
+}
+
+#foodcontainer .message {
+  box-shadow: none;
+  border-radius: 0;
+}
+
+#foodcontainer .info.message {
+  border-top: thin #276f86 solid;
+  border-bottom: thin #276f86 solid;
+}
+
+#foodcontainer .success.message {
+  border-top: thin #2c662d solid;
+  border-bottom: thin #2c662d solid;
+}
+
+#foodcontainer .warning.message {
+  border-top: thin #573a08 solid;
+  border-bottom: thin #573a08 solid;
+}
+
+#foodcontainer .error.message {
+  border-top: thin #9f3a38 solid;
+  border-bottom: thin #9f3a38 solid;
+}
+
+#foodcontainer footer {
+  background: #333;
+  color: #aaa;
+  border-top: 0.5rem solid black;
+}
+
+#foodcontainer footer h3 {
+  color: #aaa;
+  border-bottom: thin #aaa solid;
+  margin-bottom: 0.5rem;
+}
+
+.sidebar, .content {
+  padding: 0;
+}

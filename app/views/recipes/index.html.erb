@@ -1,0 +1,17 @@
+<% context_title t('.recipes') %>
+<% context_action t('.new_recipe'), new_recipe_path, :plus %>
+
+<div class="ui four column doubling stackable grid">
+  <% @recipes.each do |recipe| %>
+    <div class="column">
+      <div class="ui fluid card">
+        <div class="image">
+          <img src="http://placehold.it/350x150">
+        </div>
+        <div class="content">
+          <%= link_to recipe.name, recipe %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

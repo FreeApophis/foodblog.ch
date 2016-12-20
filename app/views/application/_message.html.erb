@@ -1,0 +1,29 @@
+<% if flash[:notice] %>
+  <div class="ui info icon message">
+    <i class="icon info"></i>
+    <i class="close icon"></i>
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<% if flash[:success] %>
+  <div class="ui success icon message">
+    <i class="icon help"></i>
+    <i class="close icon"></i>
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+<% if flash[:warning] %>
+  <div class="ui warning icon message">
+    <i class="icon warning"></i>
+    <i class="close icon"></i>
+    <%= flash[:warning] %>
+  </div>
+<% end %>
+<% if flash[:error] %>
+  <div class="ui error icon message">
+    <i class="icon lightning"></i>
+    <i class="close icon"></i>
+    <%= flash[:error] %>
+  </div>
+<% end %>

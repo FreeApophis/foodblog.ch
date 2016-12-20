@@ -1,0 +1,18 @@
+<% context_title t('.settings') %>
+
+<table class="ui striped table">
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+      <th></th>
+    </tr>
+  </thead>
+  <% @settings.each do |key, value| %>
+    <tr>
+      <td><%= key %></td>
+      <td><%= value %></td>
+      <td><%= link_to 'edit', edit_setting_path(key) %></td>
+    </tr>
+  <% end %>
+</table>
