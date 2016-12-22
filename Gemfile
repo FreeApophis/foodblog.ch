@@ -58,6 +58,9 @@ gem "rails-settings-cached"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# mysql backend
+gem 'mysql2', '~> 0.3.18'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

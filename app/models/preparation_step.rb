@@ -1,3 +1,3 @@
 class PreparationStep < ApplicationRecord
-  belongs_to: :recipe
+  belongs_to :recipe
 end
