@@ -92,11 +92,12 @@
 
 #Preparation Steps
 ol.preparation {
-	counter-reset:li; /* Initiate a counter */
+	counter-reset:steps; /* Initiate a counter */ 
 	margin-left:0; /* Remove the default left margin */
 	padding-left:0; /* Remove the default left padding */
 }
 ol.preparation > li {
+	counter-increment:steps; /* Increment the counter by 1 */
 	position:relative; /* Create a positioning context */
 	margin:0 0 6px 2em; /* Give each list item a left margin to make room for the numbers */
 	padding:4px 8px; /* Add some spacing around the content */
@@ -106,8 +107,7 @@ ol.preparation > li {
 	background:#f8f8f8;
 }
 ol.preparation > li:before {
-	content:counter(li); /* Use the counter as content */
-	counter-increment:li; /* Increment the counter by 1 */
+	content:counter(steps); /* Use the counter as content */
 	/* Position and style the number */
 	position:absolute;
         font-size: 1.5rem;
