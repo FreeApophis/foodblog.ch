@@ -1,0 +1,23 @@
+<%= form_for(@unit, :html => {class: 'ui form'}) do |f| %>
+    <%= render 'validation_message', validation_object: @unit %>
+
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name, :placeholder => t('.name_description') %>
+    </div>
+    <div class="field">
+      <%= f.label :abbrevation %>
+      <%= f.text_field :abbrevation, :placeholder => t('.abbrevation_description') %>
+    </div>
+    <div class="field">
+      <%= f.label :unit_factor %>
+      <%= f.number_field :unit_factor, :placeholder => t('.unit_factor_description'), step: :any %>
+    </div>
+    <div class="field">
+      <%= f.label :category %>
+      <%= f.select :category, Unit.categories.map { |key, value| [key.humanize, key] } %>
+    </div>
+
+    <%= f.button class: 'ui primary button' %>
+    <%= link_to t(:cancel, scope: :generic), units_path, class: 'ui secondary button' %>
+<% end %>

@@ -1,0 +1,28 @@
+<% context_title t('.units') %>
+<% context_action t('.new_unit'), new_unit_path, :plus %>
+
+<table class="ui celled table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Abbr</th>
+      <th>Factor</th>
+      <th>Category</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @units.each do |unit| %>
+      <tr>
+        <td><%= unit.name %></td>
+        <td><%= unit.abbrevation %></td>
+        <td><%= unit.unit_factor %></td>
+        <td><%= unit.category %></td>
+        <td><%= link_to 'Show', unit %></td>
+        <td><%= link_to 'Edit', edit_unit_path(unit) %></td>
+        <td><%= link_to 'Destroy', unit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

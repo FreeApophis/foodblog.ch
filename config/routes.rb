@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   resources :images
   resources :activities, only: [:index]
   resources :settings
+  resources :units
 end

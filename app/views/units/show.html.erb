@@ -1,0 +1,24 @@
+<h2><%= context_title @unit.name %></h2>
+<% context_action t('.edit'), edit_unit_path(@unit), :write %>
+<% context_action t('.delete'), delete_modal(@unit), :remove %>
+
+<% un = present(@unit) %>
+
+<div class="ui divided selection list">
+  <a class="item">
+    <div class="ui horizontal label">Name</div>
+    <%= @unit.name %>
+  </a>
+  <a class="item">
+    <div class="ui horizontal label">Abbrevation</div>
+    <%= @unit.abbrevation %>
+  </a>
+  <a class="item">
+    <div class="ui horizontal label">of base unit (kg, l)</div>
+    <%= @unit.unit_factor %>
+  </a>
+  <a class="item">
+    <div class="ui horizontal label">Category</div>
+    <%= @unit.category %>
+  </a>
+</div>

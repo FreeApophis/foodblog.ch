@@ -22,16 +22,19 @@ module ApplicationHelper
     title
   end
 
-  def context_action text, link, icon_type = nil
-    # <a class="item">Edit<i class="write icon"></i></a>
-    content_for :actions do
-      link_to link, class: 'item' do 
-        if icon_type
-          text + icon(icon_type)
-        else
-          text 
-        end
+  def context_menu text, link, icon_type = nil
+    link_to link, class: 'item' do 
+      if icon_type
+        text.html_safe + icon(icon_type)
+      else
+        text.html_safe
       end
+    end
+  end
+
+  def context_action text, link, icon_type = nil
+    content_for :actions do
+      context_menu text, link, icon_type
     end
   end
 

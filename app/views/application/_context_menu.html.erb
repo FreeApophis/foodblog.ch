@@ -8,8 +8,9 @@
   <div class="item">
     <div class="header">Administration</div>
     <div class="menu">
-      <%= link_to 'Settings', settings_path, class: 'teal item' %>
-      <%= link_to 'Activities', activities_path, class: 'red item' %>
+      <%= context_menu 'Units', units_path, 'calculator' %>
+      <%= context_menu 'Settings', settings_path, 'settings' %>
+      <%= context_menu 'Activities', activities_path, 'list' %>
     </div>
   </div>
 </div>

@@ -1,0 +1,2 @@
+class UnitPresenter < AbstractPresenter
+end

@@ -1,14 +1,57 @@
 <% context_title @recipe.name %>
 <% context_action t('.edit'), edit_recipe_path(@recipe), :write %>
 <% context_action t('.delete'), delete_modal(@recipe), :remove %>
-
+<% recipe_presenter = present(@recipe) %>
 <h2><%= @recipe.name %></h2>
 
 <p>
   <%= @recipe.description %>
 </p>
 
-<p>
-  <%= present(@recipe.author).avatar %>
-</p>
+<div class="ui grid">
+  <div class="doubling four columns row">
+    <div class="column">
+      <a class="ui teal label">
+        <i class="wait icon"></i>
+        Vorbereitung
+        <div class="detail">
+          <%= @recipe.preparation_time %>min
+        </div>
+      </a>
+    </div>
+    <div class="column">
+      <a class="ui teal label">
+        <i class="doctor icon"></i>
+        Kalorien
+        <div class="detail">
+          <%= @recipe.calories %>min
+        </div>
+      </a>
+    </div>
+    <div class="column">
+      <a class="ui teal label">
+        <i class="users icon"></i>
+        Portionen
+        <div class="detail">
+          <%= @recipe.portions %>
+        </div>
+      </a>
+    </div>
+    <div class="column">
+      <%= present(@recipe.author).avatar %>
+    </div>
+  </div>
+</div>
+
+<div class="ui divided grid">
+  <div class="row">
+    <div class="five wide column">
+      <%= recipe_presenter.show_ingredients %>
+    </div>
+    <div class="eleven wide column">
+      <%= recipe_presenter.show_preparation_steps %>
+    </div>
+  </div>
+</div>
+
 
