@@ -99,7 +99,7 @@ ol.preparation {
 ol.preparation > li {
 	counter-increment:steps; /* Increment the counter by 1 */
 	position:relative; /* Create a positioning context */
-	margin:0 0 6px 2em; /* Give each list item a left margin to make room for the numbers */
+	margin:0 0 1em 2em; /* Give each list item a left margin to make room for the numbers */
 	padding:4px 8px; /* Add some spacing around the content */
 	list-style:none; /* Disable the normal item numbering */
 	border-top:5px solid darkred;
