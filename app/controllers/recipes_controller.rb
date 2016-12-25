@@ -22,7 +22,7 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new(recipe_params.merge(author: current_user))
+    @recipe = Recipe.new(correct_so(recipe_params.merge(author: current_user)))
     authorize @recipe
 
     respond_to do |format|
@@ -42,8 +42,8 @@ class RecipesController < ApplicationController
 
   def update
     respond_to do |format|
-      if @recipe.update(recipe_params)
-        @blog.create_activity :update, owner: current_user
+      if @recipe.update(correct_so(recipe_params))
+        @recipe.create_activity :update, owner: current_user
         format.html { redirect_to @recipe, notice: 'Recipe was successfully updated.' }
         format.json { render :show, status: :ok, location: @recipe }
       else
@@ -63,11 +63,20 @@ class RecipesController < ApplicationController
 
   private
     def set_recipe
-      @recipe = Recipe.find(params[:id])
+      @recipe = Recipe.includes(:recipe_ingredients, :preparation_steps).find(params[:id])
       authorize @recipe
     end
 
     def recipe_params
-      params.require(:recipe).permit(:name, :author_id, :description)
+      params.require(:recipe)
+        .permit(:name, :description, :preparation_time, :cooking_time, :difficulty, :portions, 
+          recipe_ingredients_attributes: [:id, :amount, :unit_id, :ingredient_id, :_destroy], 
+          preparation_steps_attributes: [:id, :text, :_destroy])     
     end
+  def correct_so params
+    params[:preparation_steps_attributes].each_with_index do |ps, index|
+      ps[1].merge!(sort_order: index)
+    end
+    params
+  end
 end

@@ -1,14 +1,6 @@
-<p id="notice"><%= notice %></p>
+<h2><%= context_title @ingredient.name %></h2>
 
-<p>
-  <strong>Name:</strong>
-  <%= @ingredient.name %>
-</p>
+<% context_action t('.edit'), edit_ingredient_path(@ingredient), :write %>
+<% context_action t('.delete'), delete_modal(@ingredient), :remove %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @ingredient.description %>
-</p>
-
-<%= link_to 'Edit', edit_ingredient_path(@ingredient) %> |
-<%= link_to 'Back', ingredients_path %>
+<%= @ingredient.description %>

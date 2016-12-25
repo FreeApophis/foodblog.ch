@@ -1,0 +1,13 @@
+<div class="remove_fields_container ui basic segment">
+  <div class="field">
+    <%= f.label t(:step, scope: :application) %>
+    <%= f.text_area :text %>
+  </div>
+
+  <div class="field">
+    <%= f.hidden_field :_destroy %>
+    <%= link_to '#', class: 'ui labeled icon red remove_fields button' do %>
+      <% icon('remove') + t('.remove_step') %>
+    <% end %>
+  </div>
+</div>

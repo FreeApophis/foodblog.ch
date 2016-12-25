@@ -1,0 +1,32 @@
+<div class="remove_fields_container">
+  <div class="fields">
+    <div class="four wide field">
+      <%= f.label :amount %>
+      <%= f.number_field :amount, step: :any %>
+    </div>
+    <div class="four wide field">
+      <%= f.label :unit %>
+      <%= f.select :unit_id, options_for_select(Unit.all.map{ |u| [u.name, u.id]}) %>
+    </div>
+    <div class="six wide field">
+      <%= f.label :ingredient %>
+      <div class="ui search selection dropdown">
+        <%= f.hidden_field :ingredient_id %>
+        <i class="dropdown icon"></i>
+        <div class="default text">Select Ingredient</div>
+        <div class="menu">
+          <% Ingredient.all.order(:name).each do |ingredient| %>
+            <div class="item" data-value="<%= ingredient.id %>"><%= ingredient.name %></div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="two wide field">
+      <%= f.label t '.action' %>
+      <%= f.hidden_field :_destroy %>
+      <%= link_to '#', class: 'ui right labeled icon red remove_fields button' do %>
+        <% icon('remove') + t('.remove') %>
+      <% end %>
+    </div>
+  </div>
+</div>

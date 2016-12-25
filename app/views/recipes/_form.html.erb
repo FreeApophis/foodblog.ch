@@ -21,12 +21,44 @@
     <%= f.text_area :description %>
   </div>
 
+  <div class="fields">
+    <div class="four wide field">
+      <%= f.label :preparation_time %>
+      <%= f.number_field :preparation_time %>
+    </div>
+    <div class="four wide field">
+      <%= f.label :cooking_time %>
+      <%= f.number_field :cooking_time %>
+    </div>
+    <div class="four wide field">
+      <%= f.label :difficulty %>
+      <%= f.number_field :difficulty %>
+    </div>
+    <div class="four wide field">
+      <%= f.label :portions %>
+      <%= f.number_field :portions %>
+    </div>
+  </div>
+
+  <h3><%= t('.ingredients') %></h3>
+  <%= f.fields_for :recipe_ingredients do |ri| %>
+    <% render 'recipe_ingredient', f: ri %>
+  <% end %>
+
   <div class="field">
-    <%= f.label :portions %>
-    <%= f.number_field :portions %>
+    <%= link_to_add_fields t('.add_ingredient'), f, :recipe_ingredients %>
+  </div>
+
+  <h3><%= t('.preparation_steps') %></h3>
+  <%= f.fields_for :preparation_steps do |ps| %>
+    <% render 'preparation_step', f: ps%>
+  <% end %>
+
+  <div class="field">
+    <%= link_to_add_fields t('..add_preparation_step'), f, :preparation_steps %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'ui primary button' %>
   </div>
 <% end %>

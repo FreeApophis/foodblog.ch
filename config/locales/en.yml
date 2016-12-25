@@ -1,26 +1,66 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
+# Primary Translation File: English
 
 en:
-  hello: "Hello world"
+  # Non-specific Translations
   application:
     ago: ago
+    step: Step
 
+  # View Translations
+  activities:
+  blogs:
+  comments:
+  images:
+  ingredients:
+    edit:
+      edit_ingredient: Edit Ingredient
+    new:
+      new_ingredient: New Ingredient
+    form:
+      name_description: Name of the ingredient (singular)
+      description_description: Description of the Ingredient
+  preparation_steps:
+  recipe_ingredients:
+  recipes:
+    preparation_step:
+  settings:
+  units:
+  users:
+
+
+  # Model Translations
+  recipes:
+    form:
+      add_ingredient: Add Ingredient
+      add_preparation_step: Add Prepartion Step
+    recipe_ingredient:
+      action: Action
+      remove: Remove
+    preparation_step:
+      remove_step: Remove Step
+  activerecord: # Model name and attribute overrides
+    models:
+      activity: Activity
+      blog: Blog
+      comment: Comment
+      image: Image
+      ingredient: Ingredient
+      preparation_step: Preparation Step
+      recipe_ingredient: Recipe Ingredient
+      recipe: Recipe
+      setting: Setting
+      unit: Unit
+      user: User
+    attributes:
+      activity:
+      blog:
+      comment:
+        text: Text
+      image:
+      ingredient:
+      preparation_step:
+      recipe_ingredient:
+      recipe:
+      setting:
+      unit:
+      user:

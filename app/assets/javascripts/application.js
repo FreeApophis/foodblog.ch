@@ -41,6 +41,27 @@ var ready = function() {
     .sidebar('setting', 'transition', 'scale down')
     .sidebar('setting', 'mobileTransition', 'push')
     .sidebar('attach events', '.admin.item');
+
+  // Ingredient Dropdown in Recipe
+  $('.ui.search.dropdown').dropdown();
+
+  // Remove Fields in Recipe
+  $('form').on('click', '.remove_fields', function(event) {
+     $(this).prev('input[type=hidden]').val('1');
+     $(this).closest('.remove_fields_container').hide();
+     event.preventDefault();
+  });
+
+  // Add Fields in Recipe
+  $('form').on('click', '.add_fields', function(event) {
+    time = new Date().getTime();
+    regexp = new RegExp($(this).data('id'), 'g');
+    $(this).before($(this).data('fields').replace(regexp, time));
+    $('.ui.search.dropdown').dropdown();
+    event.preventDefault();
+  });
+  
+
 };
 
 $(document).on('turbolinks:load', ready);
