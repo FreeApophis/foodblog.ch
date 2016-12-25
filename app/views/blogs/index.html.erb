@@ -2,7 +2,7 @@
 <% context_action t('.new_blog'), new_blog_path, :plus %>
 
 <div class="ui grid">
-  <div class="eleven wide column">
+  <div class="sixteen wide mobile eleven wide tablet eleven wide computer column">
     <div class="postlist">
       <% @blogs.each do |blog| %>
         <% bl = present(blog) %>
@@ -39,7 +39,7 @@
       <% end %>
     </div>
   </div>
-  <div class="five wide column">
+  <div class="computer tablet only five wide column">
     <div class="ui piled segment">
       <%= render 'activities/activities', activities: PublicActivity::Activity.order(created_at: :desc).first(5) %>
     </div>

@@ -20,7 +20,7 @@ By <%= present(@recipe.author).avatar %> - Difficulty: <%= @recipe.difficulty %>
         <i class="wait icon"></i>
         <%= t('.preparation') %>
         <div class="detail">
-          <%= @recipe.preparation_time %>min
+          <%= @recipe.preparation_time %><%= t('.minutes_unit') %>
         </div>
       </a>
     </div>
@@ -29,7 +29,7 @@ By <%= present(@recipe.author).avatar %> - Difficulty: <%= @recipe.difficulty %>
         <i class="wait icon"></i>
         <%= t('.cooking') %>
         <div class="detail">
-          <%= @recipe.preparation_time %>min
+          <%= @recipe.cooking_time %><%= t('.minutes_unit') %>
         </div>
       </a>
     </div>
@@ -38,7 +38,7 @@ By <%= present(@recipe.author).avatar %> - Difficulty: <%= @recipe.difficulty %>
         <i class="doctor icon"></i>
         <%= t('.calories') %>
         <div class="detail">
-          <%= @recipe.calories %>kcal
+          <%= @recipe.calories %><%= t('.calories_unit') %>
         </div>
       </a>
     </div>
@@ -54,7 +54,12 @@ By <%= present(@recipe.author).avatar %> - Difficulty: <%= @recipe.difficulty %>
   </div>
 </div>
 
-<div class="ui divided grid">
+<h4 class="ui horizontal divider header">
+  <i class="food icon"></i>
+  <%= t('.recipe_instructions') %>
+</h4>
+
+<div class="ui stackable divided grid">
   <div class="row">
     <div class="five wide column">
       <%= recipe_presenter.show_ingredients %>

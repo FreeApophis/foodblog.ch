@@ -74,8 +74,10 @@ class RecipesController < ApplicationController
           preparation_steps_attributes: [:id, :text, :_destroy])     
     end
   def correct_so params
-    params[:preparation_steps_attributes].each_with_index do |ps, index|
-      ps[1].merge!(sort_order: index)
+    if params && params[:preparation_steps_attributes]
+      params[:preparation_steps_attributes].each_with_index do |ps, index|
+        ps[1].merge!(sort_order: index)
+      end
     end
     params
   end

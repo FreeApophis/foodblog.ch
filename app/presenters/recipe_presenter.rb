@@ -4,7 +4,7 @@ class RecipePresenter < AbstractPresenter
   end
 
   def show_ingredients
-    h.content_tag(:table, class: 'ui compact striped very basic table') do
+    h.content_tag(:table, class: 'ui compact unstackable striped very basic table') do
       m.recipe_ingredients.each do |ri|
         h.concat(h.content_tag(:tr) do
           h.content_tag(:td, class: 'right aligned') do

@@ -22,22 +22,31 @@ en:
   preparation_steps:
   recipe_ingredients:
   recipes:
+    edit:
+      edit_recipe: Edit Recipe
+    form:
+      add_ingredient: Add Ingredient
+      add_preparation_step: Add Prepartion Step
+    new:
+      edit_recipe: New Recipe
     preparation_step:
+      remove_step: Remove Step
+    recipe_ingredient:
+      action: Action
+      remove: Remove
+    show:
+      recipe_instructions: Instructions
+      preparation: Preparation
+      cooking: Cooking
+      calories: Calories
+      portions: Portions
+      minutes_unit: min!
+      calories_unit: kcal!
   settings:
   units:
   users:
 
-
   # Model Translations
-  recipes:
-    form:
-      add_ingredient: Add Ingredient
-      add_preparation_step: Add Prepartion Step
-    recipe_ingredient:
-      action: Action
-      remove: Remove
-    preparation_step:
-      remove_step: Remove Step
   activerecord: # Model name and attribute overrides
     models:
       activity: Activity
