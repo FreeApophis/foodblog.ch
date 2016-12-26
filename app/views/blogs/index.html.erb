@@ -1,5 +1,5 @@
 <% context_title t('.blogs') %>
-<% context_action t('.new_blog'), new_blog_path, :plus %>
+<% context_action(t('.new_blog'), new_blog_path, :plus) if policy(:blog).new? %>
 
 <div class="ui grid">
   <div class="sixteen wide mobile eleven wide tablet eleven wide computer column">

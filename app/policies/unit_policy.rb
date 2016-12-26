@@ -5,11 +5,20 @@ class UnitPolicy < ApplicationPolicy
     end
   end
 
-  def update?
+
+  def create?
+    admin? || user?
+  end
+
+  def show?
     true
   end
 
-  def create?
-    true
+  def update?
+    admin?
+  end
+
+  def destory?
+    admin?
   end
 end

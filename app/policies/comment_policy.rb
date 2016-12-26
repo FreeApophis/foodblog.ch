@@ -6,6 +6,19 @@ class CommentPolicy < ApplicationPolicy
   end
 
   def create?
+    # Even guests can write comments. Maybe captcha needed for them
     true
+  end
+
+  def show?
+    false
+  end
+
+  def update?
+    admin?
+  end
+
+  def destroy?
+    admin?
   end
 end

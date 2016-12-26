@@ -1,0 +1,30 @@
+<div class="remove_fields_container">
+  <div class="fields">
+    <div class="three wide field">
+      <%= f.label :file %>
+      <% unless f.object.new_record? %>
+         <%= image_tag f.object.file.url(:thumb), class: 'ui tiny image' %>
+      <% else %>
+        <div>
+          <%= f.label :file, class: "ui teal icon button" do %>
+            <%= icon('upload') + t('.select_image') %>
+          <% end %>
+          <%= f.file_field :file, style: 'display:none' %>
+        </div>
+      <% end %>
+      <%= f.hidden_field :file_cache %>
+    </div>
+    <div class="ten wide field">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="three wide field">
+      <%= f.label t '.action' %>
+      <%= f.hidden_field :_destroy %>
+      <%= link_to '#', class: 'ui right labeled icon red remove_fields button' do %>
+        <% icon('remove') + t('.remove') %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,16 +1,26 @@
-<div class="ui right vertical menu sidebar">
-  <div class="item">
-    <div class="header">Actions</div>
-    <div class="menu">
-      <%= yield(:actions) %>
+<% if current_user %>
+  <div class="ui right vertical menu sidebar">
+    <div class="item">
+      <%= t(:hello, scope: :application) %> <%= link_to current_user.name, current_user %>
     </div>
-  </div>
-  <div class="item">
-    <div class="header">Administration</div>
-    <div class="menu">
-      <%= context_menu 'Units', units_path, 'calculator' %>
-      <%= context_menu 'Settings', settings_path, 'settings' %>
-      <%= context_menu 'Activities', activities_path, 'list' %>
+    <div class="item">
+      <div class="header">Actions</div>
+      <div class="menu">
+        <%= yield(:actions) %>
+      </div>
     </div>
+    <div class="item">
+      <div class="header"><%= t(:more, scope: :application)%></div>
+      <%= render 'more_menu' %>
+    </div>
+    <% if current_user.admin? %>
+      <div class="item">
+        <div class="header"><%= t(:administration, scope: :application)%></div>
+        <div class="menu">
+          <%= context_menu 'Settings', settings_path, 'settings' %>
+        </div>
+      </div>
+    <% end %>
   </div>
-</div>
+<% end %>
+	

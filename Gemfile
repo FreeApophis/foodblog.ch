@@ -50,9 +50,14 @@ gem 'pundit'
 # Collections
 gem 'kaminari'
 
+# Friendly URL
+gem 'friendly_id'
+
 # Images
 gem 'carrierwave'
 gem 'carrierwave_backgrounder'
+gem 'mini_magick'
+gem 'nivo-rails'
 
 # Activity-Feed
 gem 'public_activity'

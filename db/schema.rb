@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161225233837) do
+ActiveRecord::Schema.define(version: 20161226183554) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "trackable_type"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20161225233837) do
     t.datetime "updated_at",                 null: false
     t.integer  "comments_count", default: 0, null: false
     t.integer  "view_count",     default: 0, null: false
+    t.string   "slug"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -50,13 +51,16 @@ ActiveRecord::Schema.define(version: 20161225233837) do
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
   end
 
-  create_table "images", force: :cascade do |t|
-    t.string   "file",        null: false
-    t.string   "name",        null: false
-    t.string   "description"
-    t.integer  "size",        null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+    t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
   create_table "ingredients", force: :cascade do |t|
@@ -64,6 +68,7 @@ ActiveRecord::Schema.define(version: 20161225233837) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "slug"
   end
 
   create_table "preparation_steps", force: :cascade do |t|
@@ -74,6 +79,15 @@ ActiveRecord::Schema.define(version: 20161225233837) do
     t.datetime "updated_at", null: false
     t.index ["recipe_id"], name: "index_preparation_steps_on_recipe_id"
     t.index ["sort_order"], name: "index_preparation_steps_on_sort_order"
+  end
+
+  create_table "recipe_images", force: :cascade do |t|
+    t.string   "file",                   null: false
+    t.string   "name",                   null: false
+    t.integer  "size",                   null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "recipe_id",  default: 1, null: false
   end
 
   create_table "recipe_ingredients", force: :cascade do |t|
@@ -99,6 +113,7 @@ ActiveRecord::Schema.define(version: 20161225233837) do
     t.integer  "calories"
     t.integer  "portions"
     t.integer  "difficulty"
+    t.string   "slug"
   end
 
   create_table "settings", force: :cascade do |t|
@@ -142,6 +157,10 @@ ActiveRecord::Schema.define(version: 20161225233837) do
     t.datetime "updated_at",                                null: false
     t.integer  "role",                   default: 0,        null: false
     t.string   "name",                   default: "Noname", null: false
+    t.string   "avatar"
+    t.integer  "avatar_color",           default: 0,        null: false
+    t.text     "description"
+    t.string   "slug"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

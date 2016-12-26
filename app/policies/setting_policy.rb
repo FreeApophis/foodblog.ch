@@ -1,15 +1,19 @@
 class SettingPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.get_all
+      if admin?
+        scope.get_all
+      else
+        scope.none
+      end
     end
   end
 
-  def edit?
-    @user.admin?
+  def show?
+    scoped_record?
   end
 
   def update?
-    @user.admin?
+    admin?
   end
 end

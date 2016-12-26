@@ -1,4 +1,5 @@
-<h1>Ingredients</h1>
+<% context_title t('.ingredients') %>
+<% context_action(t('.new_ingredient'), new_ingredient_path, :plus) if policy(:ingredient).new? %>
 
 <table class="ui celled table">
   <thead>
@@ -23,13 +24,13 @@
    <tfoot class="full-width">
     <tr>
       <th colspan="5">
-        <%= link_to new_ingredient_path, class: 'ui right floated primary labeled icon button' do %>
-          <i class="user icon"></i> Add Ingredient
+        <% if policy(:ingredient).new? %>
+          <%= link_to new_ingredient_path, class: 'ui right floated primary labeled icon button' do %>
+            <i class="user icon"></i> <% t('.new_ingredient') %>
+          <% end %>
         <% end %>
       </th>
     </tr>
   </tfoot>
 </table>
-
-<br>
 

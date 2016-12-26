@@ -1,5 +1,11 @@
 <%= form_for(@setting, url: setting_path(@setting.var), method: 'patch', html: { class: 'ui form' } ) do |f| %>
-  <label><%= @setting.var %></label>
-  <%= f.text_area :value, rows: 10 %>
-  <%= f.submit %>
+	
+  <div class="field">
+    <%= f.label @setting.var %>
+    <%= f.text_area :value, rows: Setting.text_rows %>
+  </div>
+
+  <div class="buttons">
+    <%= f.submit %>
+  <div>
 <% end %>

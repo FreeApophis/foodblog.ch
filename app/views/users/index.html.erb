@@ -1,0 +1,11 @@
+<h2><%= context_title t('.users') %></h2>
+
+<div class="ui grid">
+  <div class="stackable doubling four column row">
+    <div class="column">
+      <% @users.each do |user| %>
+        <%= present(user).as_card %>
+      <% end %>    
+    </div>
+  </div>
+</div>

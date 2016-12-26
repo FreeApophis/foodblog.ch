@@ -1,0 +1,33 @@
+<%= form_for(user, :html => { class: 'ui form', multipart: true }) do |f| %>
+    <%= render 'validation_message', validation_object: user %>
+
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name, :placeholder => t('.name_description') %>
+    </div>
+
+    <% if current_user.admin? %>
+      <div class="field">
+        <%= f.label :role %>
+        <%= f.select :role, User.roles.map { |key, value| [key.humanize, key] } %>
+      </div>
+    <% end %>
+	
+    <div class="field">
+      <%= f.label :description %>
+      <%= f.text_area :description, rows: Setting.text_rows, :placeholder => t('.description_description') %>
+    </div>
+
+    <div class="field">
+      <%= f.label :avatar %>
+      <div>
+        <%= f.label :avatar, class: "ui teal icon button" do %>
+          <%= icon('upload') + t('.select_image') %>
+        <% end %>
+        <%= f.file_field :avatar, style: 'display:none' %>
+      </div>
+    </div>
+
+    <%= f.button class: 'ui primary button' %>
+    <%= link_to t(:cancel, scope: :generic), users_path, class: 'ui secondary button' %>
+<% end %>

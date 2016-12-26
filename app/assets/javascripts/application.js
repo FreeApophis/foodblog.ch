@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require semantic_ui/semantic_ui
+//= require nivo
 //= require_tree .
 
 
@@ -69,7 +70,9 @@ var ready = function() {
     $('.ui.search.dropdown').dropdown();
     event.preventDefault();
   });
-  
+
+  // Start Nivo-Slider
+  $('#slider').nivoSlider();
 
 };
 

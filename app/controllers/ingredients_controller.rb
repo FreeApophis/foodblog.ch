@@ -53,7 +53,7 @@ class IngredientsController < ApplicationController
 
   private
     def set_ingredient
-      @ingredient = Ingredient.find(params[:id])
+      @ingredient = Ingredient.friendly.find(params[:id])
       authorize @ingredient
     end
 

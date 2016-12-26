@@ -26,3 +26,7 @@ seed_unit('Tasse', 'Tasse', 0.125, :volume)
 seed_unit('Stück ', 'St.', 1.0, :piece)
 seed_unit('Dutzend', 'Dtzd', 12.0, :piece)
 
+Blog.find_each(&:save)
+Recipe.find_each(&:save)
+Ingredient.find_each(&:save)
+User.find_each(&:save)

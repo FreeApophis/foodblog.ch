@@ -1,4 +1,4 @@
-<%= form_for(recipe, html: { class: 'ui form' } ) do |f| %>
+<%= form_for(recipe, html: { class: 'ui form' }, multipart: true ) do |f| %>
   <% if recipe.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= f.label :description %>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, rows: Setting.text_rows, :placeholder => t('.description_description') %>
   </div>
 
   <div class="fields">
@@ -55,7 +55,16 @@
   <% end %>
 
   <div class="field">
-    <%= link_to_add_fields t('..add_preparation_step'), f, :preparation_steps %>
+    <%= link_to_add_fields t('.add_preparation_step'), f, :preparation_steps %>
+  </div>
+
+  <h3><%= t('.images') %></h3>
+  <%= f.fields_for :images do |i| %>
+    <% render 'image', f: i %>
+  <% end %>
+
+  <div class="field">
+    <%= link_to_add_fields t('.add_image'), f, :images %>
   </div>
 
   <div class="actions">

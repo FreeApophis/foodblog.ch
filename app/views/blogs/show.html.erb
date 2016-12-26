@@ -10,4 +10,6 @@
 
 <%= bl.formatted_text %>
 
+<%= present(@blog.author).avatar %>
+
 <%= render 'comments/comments', commentable: @blog, comment: @blog.comments.build %>

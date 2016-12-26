@@ -63,7 +63,7 @@ class RecipesController < ApplicationController
 
   private
     def set_recipe
-      @recipe = Recipe.includes(:recipe_ingredients, :preparation_steps).find(params[:id])
+      @recipe = Recipe.includes(:recipe_ingredients, :preparation_steps).friendly.find(params[:id])
       authorize @recipe
     end
 
@@ -71,7 +71,8 @@ class RecipesController < ApplicationController
       params.require(:recipe)
         .permit(:name, :description, :preparation_time, :cooking_time, :difficulty, :portions, 
           recipe_ingredients_attributes: [:id, :amount, :unit_id, :ingredient_id, :_destroy], 
-          preparation_steps_attributes: [:id, :text, :_destroy])     
+          images_attributes: [:id, :file, :name],
+          preparation_steps_attributes: [:id, :text, :_destroy])
     end
   def correct_so params
     if params && params[:preparation_steps_attributes]

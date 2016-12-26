@@ -1,15 +1,24 @@
 class BlogPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.all if admin?
+      scope.published
     end
   end
 
-  def update?
-    true
+  def create?
+    admin?
   end
 
-  def create?
-    true
+  def show?
+    scoped_record?
+  end
+
+  def update?
+    admin?
+  end
+
+  def destroy
+    admin?
   end
 end

@@ -40,7 +40,7 @@ class BlogPresenter < AbstractPresenter
   def author_index
     h.link_to m do
       h.content_tag :span do
-        h.icon('large user') + m.author.email
+        h.icon('large user') + m.author.name
       end
     end
   end

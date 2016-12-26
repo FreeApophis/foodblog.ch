@@ -8,7 +8,7 @@
       <%= f.label :unit %>
       <%= f.select :unit_id, options_for_select(Unit.all.map{ |u| [u.name, u.id]}, f.object.unit_id) %>
     </div>
-    <div class="six wide field">
+    <div class="five wide field">
       <%= f.label :ingredient %>
       <div class="ui search selection dropdown">
         <%= f.hidden_field :ingredient_id %>
@@ -21,7 +21,7 @@
         </div>
       </div>
     </div>
-    <div class="two wide field">
+    <div class="three wide field">
       <%= f.label t '.action' %>
       <%= f.hidden_field :_destroy %>
       <%= link_to '#', class: 'ui right labeled icon red remove_fields button' do %>

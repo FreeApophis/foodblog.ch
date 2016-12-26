@@ -5,18 +5,36 @@
 
 <% recipe_presenter = present(@recipe) %>
 
-<p>
-  <%= @recipe.description %>
-</p>
+<% if @recipe.images.any? %>
+  <div class="ui stackable divided grid">
+    <div class="row">
+      <div class="eight wide column">
+        <%= nivo_slider id: "slider" do %>
+          <% @recipe.images.each do |image| %>
+            <%= image_tag image.file.url(:slide), title: image.name %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="eight wide column">
+        <%= recipe_presenter.formatted_description %>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <%= recipe_presenter.formatted_description %>
+<% end %>
 
-<p>
-By <%= present(@recipe.author).avatar %> - Difficulty: <%= @recipe.difficulty %>
-</p>
 
 <div class="ui grid">
-  <div class="doubling four columns row">
+  <div class="doubling six columns row">
     <div class="column">
-      <a class="ui teal label">
+      <%= present(@recipe.author).avatar %>
+    </div>
+    <div class="column">
+      <%= recipe_presenter.difficulty_tag  %>
+    </div>
+    <div class="column">
+      <a class="ui basic teal label">
         <i class="wait icon"></i>
         <%= t('.preparation') %>
         <div class="detail">
@@ -25,7 +43,7 @@ By <%= present(@recipe.author).avatar %> - Difficulty: <%= @recipe.difficulty %>
       </a>
     </div>
     <div class="column">
-      <a class="ui teal label">
+      <a class="ui basic teal label">
         <i class="wait icon"></i>
         <%= t('.cooking') %>
         <div class="detail">
@@ -34,7 +52,7 @@ By <%= present(@recipe.author).avatar %> - Difficulty: <%= @recipe.difficulty %>
       </a>
     </div>
     <div class="column">
-      <a class="ui teal label">
+      <a class="basic ui teal label">
         <i class="doctor icon"></i>
         <%= t('.calories') %>
         <div class="detail">
@@ -43,7 +61,7 @@ By <%= present(@recipe.author).avatar %> - Difficulty: <%= @recipe.difficulty %>
       </a>
     </div>
     <div class="column">
-      <a class="ui teal label">
+      <a class="basic ui teal label">
         <i class="users icon"></i>
         <%= t('.portions') %>
         <div class="detail">

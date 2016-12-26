@@ -2,20 +2,25 @@
   <div class="ui padded grid">
     <div class="three column row">
       <div class="column">
-        <h3>About</h3>
+        <h3><%= t '.about' %></h3>
         <%= Setting.about %>
+        <div class="ui inverted link list">
+          <%= link_to t('.impressum'), '#', class: 'item' %>
+        </div>
       </div>
       <div class="column">
-        <h3>Column 2</h3>
-        Lorem Ipusum
-        Lorem Ipusum
-        Lorem Ipusum
-        Lorem Ipusum
+        <h3><%= t '.site' %></h3>
+        <div class="ui inverted link list">
+          <%= link_to t('.users'), users_path, class: 'item' %>
+          <%= link_to t('.units'), units_path, class: 'item' %>
+          <%= link_to t('.activities'), activities_path, class: 'item' %>
+        </div>
       </div>
       <div class="column">
-        <h3>Column 3</h3>
-        Lorem Ipusum
-        Lorem Ipusum
+        <h3><%= t('.links') %></h3>
+        <div class="ui inverted link list">
+          <%= link_to t('.todo'), users_path, class: 'item' %>
+        </div>
       </div>
     </div>
   </div>

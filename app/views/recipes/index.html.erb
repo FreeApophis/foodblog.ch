@@ -4,14 +4,7 @@
 <div class="ui four column doubling stackable grid">
   <% @recipes.each do |recipe| %>
     <div class="column">
-      <div class="ui fluid card">
-        <div class="image">
-          <img src="http://placehold.it/350x150">
-        </div>
-        <div class="content">
-          <%= link_to recipe.name, recipe %>
-        </div>
-      </div>
+      <%= present(recipe).as_card %>
     </div>
   <% end %>
 </div>

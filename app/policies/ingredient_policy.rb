@@ -5,11 +5,19 @@ class IngredientPolicy < ApplicationPolicy
     end
   end
 
-  def update?
+  def create?
+    user? || admin?
+  end
+
+  def show?
     true
   end
 
-  def create?
-    true
+  def update?
+    admin?
+  end
+
+  def destroy?
+    admin?
   end
 end
