@@ -46,8 +46,8 @@ en:
       cooking: Cooking
       calories: Calories
       portions: Portions
-      minutes_unit: min!
-      calories_unit: kcal!
+      minutes_unit: min
+      calories_unit: kcal
   settings:
   units:
   users:

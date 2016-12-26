@@ -6,7 +6,7 @@
     </div>
     <div class="four wide field">
       <%= f.label :unit %>
-      <%= f.select :unit_id, options_for_select(Unit.all.map{ |u| [u.name, u.id]}) %>
+      <%= f.select :unit_id, options_for_select(Unit.all.map{ |u| [u.name, u.id]}, f.object.unit_id) %>
     </div>
     <div class="six wide field">
       <%= f.label :ingredient %>
