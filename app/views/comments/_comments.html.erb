@@ -1,4 +1,4 @@
-<div class="ui comments">
+<div class="ui comments" id="comments">
   <h3 class="ui dividing header"><%= t '.comments' %></h3>
   <% commentable.comments.includes(:user).each do |comment| %>
       <%= present(comment).comment_view %>

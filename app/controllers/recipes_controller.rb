@@ -71,7 +71,7 @@ class RecipesController < ApplicationController
       params.require(:recipe)
         .permit(:name, :description, :preparation_time, :cooking_time, :difficulty, :portions, 
           recipe_ingredients_attributes: [:id, :amount, :unit_id, :ingredient_id, :_destroy], 
-          images_attributes: [:id, :file, :name],
+          images_attributes: [:id, :file, :name, :_destroy],
           preparation_steps_attributes: [:id, :text, :_destroy])
     end
   def correct_so params
