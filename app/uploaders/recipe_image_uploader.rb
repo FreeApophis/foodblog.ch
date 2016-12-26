@@ -33,6 +33,10 @@ class RecipeImageUploader < CarrierWave::Uploader::Base
      process :resize_to_fill => [1200, 675]
   end
 
+  def default_url(*args)
+    ActionController::Base.helpers.asset_path([version_name, "default_recipe_image.png"].compact.join('_'))
+  end
+
   def extension_white_list
     %w(jpg jpeg png)
   end
