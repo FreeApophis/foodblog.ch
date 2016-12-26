@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :blogs, concerns: [:commentable]
 
   devise_for :users
-  resources :users, only: [:index, :show, :edit, :update]
+  resources :users, only: [:index, :show, :edit, :update, :destroy]
 
   resources :ingredients
   resources :recipes

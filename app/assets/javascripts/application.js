@@ -26,7 +26,7 @@ var ready = function() {
     e.preventDefault();
   });
 
-  // Sign out modal
+  // Delete out modal
   $("a.delete_modal").on("click", function(e) {
     $('#delete_modal') .modal({ blurring: true }).modal('show');  
     e.preventDefault();

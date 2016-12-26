@@ -1,17 +1,18 @@
-<div class="ui small basic modal" id="sign_out_modal">
+<div class="ui small basic modal" id="delete_modal">
   <div class="ui icon header">
     <i class="sign out icon"></i>
     <%= t '.delete' %>
   </div>
   <div class="content">
     <p style='text-align: center;'><%= t '.are_you_sure_to_delete' %></p>
+    <p style='text-align: center;'><%= object.send(field) %></p>
   </div>
   <div class="actions">
     <div class="ui cancel negative button">
       <i class="remove icon"></i>
       <%= t 'no' %>
     </div>
-    <%= form_for(:user_session, :url => destroy_user_session_path, :html => { method: :delete, style: 'display:inline' }) do %>
+    <%= form_for(:user_session, :url => [object], :html => { method: :delete, style: 'display:inline' }) do %>
       <%= button_tag class: 'ui ok positive button' do %> 
         <i class="checkmark icon"></i>
         <%= t 'yes' %>  

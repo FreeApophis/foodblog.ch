@@ -23,7 +23,8 @@ module ApplicationHelper
   end
 
   def context_menu text, link, icon_type = nil
-    link_to link, class: 'item' do 
+    c = icon_type == :remove ? 'delete_modal item' : 'item'
+    link_to link, class: c do 
       if icon_type
         text.html_safe + icon(icon_type)
       else
@@ -48,7 +49,8 @@ module ApplicationHelper
     end
   end
 
-  def delete_modal model
+  def delete_modal object, field
+    render 'delete_modal', object: object, field: field
   end
 
   def icon icon_class
