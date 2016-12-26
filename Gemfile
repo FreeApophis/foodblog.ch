@@ -41,6 +41,11 @@ gem 'i18n-tasks'
 # User handling
 gem 'devise'
 gem 'pundit'
+#gem 'omniauth'
+#gem 'omniauth-facebook'
+#gem 'omniauth-instagram'
+#gem 'omniauth-twitter'
+#gem 'omniauth-google'
 
 # Collections
 gem 'kaminari'

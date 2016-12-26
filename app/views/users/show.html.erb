@@ -1,3 +1,6 @@
-<h2><%= context_title @user.email %></h2>
+<h2><%= context_title @user.name %></h2>
 <% context_action t('.edit'), edit_user_password_path(@user), :write %>
 <% context_action t('.delete'), delete_modal(@user), :remove %>
+
+<%= @user.email %>
+

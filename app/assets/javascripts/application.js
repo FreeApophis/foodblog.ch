@@ -36,6 +36,15 @@ var ready = function() {
     $(this).closest('.message').transition('fade');
   });
 
+  // Search in Main Menu
+  $('.ui.search').search({
+    type: 'category',
+    minCharacters: 2,
+    apiSettings: {
+      url: '/search/{query}'
+    }
+  });
+
   // Admin Menu
   $('.sidebar')
     .sidebar('setting', 'transition', 'scale down')

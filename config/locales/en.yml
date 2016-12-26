@@ -5,6 +5,12 @@ en:
   application:
     ago: ago
     step: Step
+    sign_in: Sign In
+    sign_out: Sign Out
+  search:
+    blogs: Blogs
+    users: Users
+    recipes: Recipes
 
   # View Translations
   activities:
