@@ -40,7 +40,7 @@ class RecipePresenter < AbstractPresenter
           end + h.content_tag(:td) do
             formatted_unit(ri.unit)
           end + h.content_tag(:td) do
-            ri.ingredient.name
+            ri.ingredient ? ri.ingredient.name : "UNKNOWN INGREDIENT (ID:#{ri.ingredient_id})"
           end
         end)
       end

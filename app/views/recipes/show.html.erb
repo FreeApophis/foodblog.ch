@@ -3,6 +3,8 @@
 <% context_action t('.delete'), '#', :remove %>
 <%= delete_modal(@recipe, :name) %>
 
+<% recipe_presenter = present(@recipe) %>
+
 <% if @recipe.images.any? %>
   <div class="ui stackable divided grid">
     <div class="row">
