@@ -26,7 +26,7 @@
       <th colspan="5">
         <% if policy(:ingredient).new? %>
           <%= link_to new_ingredient_path, class: 'ui right floated primary labeled icon button' do %>
-            <i class="user icon"></i> <% t('.new_ingredient') %>
+            <i class="plus icon"></i> <%= t('.new_ingredient') %>
           <% end %>
         <% end %>
       </th>

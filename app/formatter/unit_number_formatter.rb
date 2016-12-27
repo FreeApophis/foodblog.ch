@@ -11,28 +11,33 @@ class UnitNumberFormatter
    
   def format number
     integer = number.to_i
-    fraction = closest_fraction(number % 1)   
-    
-    if fraction
-      if integer == 0
-        return fraction
-      else
-        return "#{integer}#{fraction}"
-      end
-    else
-      if integer > @whole_number_limit # we do not need more than 2% accuracy
-        return integer.to_s
-      elsif integer == 0 # could be potentialy very small
+    fraction = number % 1
+
+    if integer > @whole_number_limit # we do not need more than 2% accuracy
+      return integer.to_s
+    elsif integer == 0 
+      # could be potentialy very small
+      if fraction < 1.0 / 16 
         return number.to_s
-      else
-        return '%.1f' % number
       end
+    end
+
+    closest = closest_fraction(fraction)
+
+    if closest
+      if integer == 0
+        return closest
+      else
+        return "#{integer}#{closest}"
+      end    
+    else
+      return '%.1f' % number
     end
   end
   
 private
   def almost_equal a, b
-    magnitude = (a + b) / @fraction_factor
+    magnitude = 1.0 / @fraction_factor
     difference = a - b
     
     difference.abs < magnitude.abs
