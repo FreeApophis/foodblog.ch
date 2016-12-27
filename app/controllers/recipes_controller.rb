@@ -9,8 +9,7 @@ class RecipesController < ApplicationController
     respond_to do |format|
       format.html { } 
       format.pdf do
-        render pdf: @recipe.name,
-            layout: 'pdf'
+        render pdf: @recipe.name, layout: 'pdf.html'
       end
       format.json { render json: @recipe }
     end

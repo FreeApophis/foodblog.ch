@@ -1,19 +1,75 @@
-<p id="notice"><%= notice %></p>
+<% if @recipe.images.any? %>
+  <%= image_tag @recipe.images.first.file.slide.path %>
+<% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @recipe.name %>
-</p>
+<h2><%= @recipe.name %></h2>
 
-<p>
-  <strong>Author:</strong>
-  <%= @recipe.author_id %>
-</p>
+<% recipe_presenter = present(@recipe) %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @recipe.description %>
-</p>
+<%= recipe_presenter.formatted_description %>
 
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Back', recipes_path %>
+
+<div class="ui grid">
+  <div class="doubling six columns row">
+    <div class="column">
+      <%= present(@recipe.author).avatar %>
+    </div>
+    <div class="column">
+      <%= recipe_presenter.difficulty_tag  %>
+    </div>
+    <div class="column">
+      <a class="ui basic teal label">
+        <i class="wait icon"></i>
+        <%= t('.preparation') %>
+        <div class="detail">
+          <%= @recipe.preparation_time %><%= t('.minutes_unit') %>
+        </div>
+      </a>
+    </div>
+    <div class="column">
+      <a class="ui basic teal label">
+        <i class="wait icon"></i>
+        <%= t('.cooking') %>
+        <div class="detail">
+          <%= @recipe.cooking_time %><%= t('.minutes_unit') %>
+        </div>
+      </a>
+    </div>
+    <div class="column">
+      <a class="basic ui teal label">
+        <i class="doctor icon"></i>
+        <%= t('.calories') %>
+        <div class="detail">
+          <%= @recipe.calories %><%= t('.calories_unit') %>
+        </div>
+      </a>
+    </div>
+    <div class="column">
+      <a class="basic ui teal label">
+        <i class="users icon"></i>
+        <%= t('.portions') %>
+        <div class="detail">
+          <%= @recipe.portions %>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<h4 class="ui horizontal divider header">
+  <i class="food icon"></i>
+  <%= t('.recipe_instructions') %>
+</h4>
+
+<div class="ui stackable divided grid">
+  <div class="row">
+    <div class="five wide column">
+      <%= recipe_presenter.show_ingredients %>
+    </div>
+    <div class="eleven wide column">
+      <%= recipe_presenter.show_preparation_steps %>
+    </div>
+  </div>
+</div>
+
+
