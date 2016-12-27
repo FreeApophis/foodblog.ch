@@ -33,6 +33,7 @@ gem 'autoprefixer-rails'
 
 # HTML to PDF
 gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 # Translations
 gem 'rails-i18n'
