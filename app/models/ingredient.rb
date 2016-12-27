@@ -4,4 +4,5 @@ class Ingredient < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: :slugged
 
+  paginates_per 25
 end

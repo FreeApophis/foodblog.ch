@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    @users = policy_scope(User)
+    @users = policy_scope(User).page(params[:page])
   end
 
   def show
@@ -39,11 +39,11 @@ private
 
     def user_params
       if current_user.admin?
-        return params.require(:user).permit(:name, :password, :avatar, :role)
+        return params.require(:user).permit(:name, :description, :password, :avatar, :role)
       end
 
       if @user == current_user
-        return params.require(:user).permit(:name, :password, :avatar)
+        return params.require(:user).permit(:name, :description, :password, :avatar)
       end
 
       return params.require(:user).permit()

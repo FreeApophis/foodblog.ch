@@ -12,6 +12,11 @@ en:
     administration: Administration
     yes: Yes
     no: No
+  pagination:
+    first: First 
+    previous: Previous
+    next: Next
+    last: Last
   search:
     blogs: Blogs
     users: Users
@@ -19,7 +24,17 @@ en:
   public_activity:
     blog:
       create:
-       new_blog_article: "New Article %{article} written by %{owner}"
+        new_blog_article: "New Blog Article %{article} written by %{user}"
+      view:
+        view_blog_article: "Blog Article %{article} viewed by %{user}"
+    comment:
+      create:
+        new_comment: "%{user} has written new comment in %{commentable}"
+    recipe:
+      create:
+        new_recipe: "New Recipe %{recipe} published by %{user}"
+      update:
+        update_recipe: "Recipe %{recipe} updated by %{user}"
 
 
   # View Translations
@@ -74,7 +89,9 @@ en:
   units:
   users:
     edit:
-     edit_user: Edit User
+      edit_user: Edit User
+    index:
+      users: Users
     joined_in: "Joined in %{year}"
     recipes_count: "%{count} Recipes"
 

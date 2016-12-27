@@ -1,5 +1,5 @@
 <%= render_feed_event activity, 'newspaper' do %>
   <% a = link_to(activity.trackable.title, activity.trackable) %>
-  <% o = activity.owner ? link_to(activity.owner.name, activity.owner) : t(:guest, scope: :application) %>
-  <%= t('.new_blog_article', article: a, owner: o).html_safe%>
+  <% u = activity.owner ? link_to(activity.owner.name, activity.owner) : t(:guest, scope: :application) %>
+  <%= t('.new_blog_article', article: a, user: u).html_safe%>
 <% end %>

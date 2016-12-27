@@ -2,7 +2,7 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
 
   def index
-    @blogs = policy_scope(Blog).order(published_at: :desc)
+    @blogs = policy_scope(Blog).order(published_at: :desc).page(params[:page])
   end
 
   def show

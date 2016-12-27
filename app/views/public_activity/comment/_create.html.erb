@@ -1,3 +1,5 @@
 <%= render_feed_event activity, 'comment' do %>
-  <%= activity.owner ? link_to(activity.owner.email, activity.owner) : 'Guest' %> added a comment to <%= link_to activity.trackable.commentable.title, activity.trackable.commentable %>
+  <% c = link_to(activity.trackable.commentable.name, activity.trackable.commentable) %>
+  <% u = activity.owner ? link_to(activity.owner.name, activity.owner) : t(:guest, scope: :application) %>
+  <%= t('.new_comment', commentable: c, user: u).html_safe %>
 <% end %>

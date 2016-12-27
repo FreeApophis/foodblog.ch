@@ -4,6 +4,8 @@ class Recipe < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: :slugged
 
+  paginates_per 16
+
   has_many :preparation_steps
   accepts_nested_attributes_for :preparation_steps, allow_destroy: true
 

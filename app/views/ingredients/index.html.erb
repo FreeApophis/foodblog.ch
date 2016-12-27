@@ -1,4 +1,4 @@
-<% context_title t('.ingredients') %>
+<h2><%= context_title t('.ingredients') %></h2>
 <% context_action(t('.new_ingredient'), new_ingredient_path, :plus) if policy(:ingredient).new? %>
 
 <table class="ui celled table">
@@ -34,3 +34,4 @@
   </tfoot>
 </table>
 
+<%= paginate @ingredients %>

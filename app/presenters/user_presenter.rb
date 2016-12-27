@@ -14,7 +14,7 @@ class UserPresenter < AbstractPresenter
           m.name
         end + h.content_tag(:div, class: 'meta') do
           I18n.t(:joined_in, scope: :users, year: m.created_at.year)
-        end + h.content_tag(:div, 'Description', class: :description)
+        end + h.content_tag(:div, m.description, class: :description)
       end + h.content_tag(:div, class: 'extra content') do
         h.icon('food') + I18n.t(:recipes_count, scope: :users, count: m.recipes.count)
       end

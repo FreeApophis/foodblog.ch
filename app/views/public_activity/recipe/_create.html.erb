@@ -1,3 +1,5 @@
 <%= render_feed_event activity, 'food' do %>
-  New Recipe Published <%= link_to activity.trackable.name, activity.trackable %> by <%= link_to activity.owner.email, activity.owner if activity.owner %> 
+  <% r = link_to(activity.trackable.name, activity.trackable) %>
+  <% u = activity.owner ? link_to(activity.owner.name, activity.owner) : t(:guest, scope: :application) %>
+  <%= t('.new_recipe', recipe: r, user: u).html_safe%>
 <% end %>

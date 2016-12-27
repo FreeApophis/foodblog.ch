@@ -2,7 +2,7 @@ class IngredientsController < ApplicationController
   before_action :set_ingredient, only: [:show, :edit, :update, :destroy]
 
   def index
-    @ingredients = policy_scope(Ingredient)
+    @ingredients = policy_scope(Ingredient).page(params[:page])
   end
 
   def show
