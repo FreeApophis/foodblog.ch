@@ -9,7 +9,9 @@ class RecipesController < ApplicationController
     respond_to do |format|
       format.html { } 
       format.pdf do
-        render pdf: @recipe.name, layout: 'pdf.html'
+        render pdf: @recipe.name, 
+            layout: 'pdf.html',
+            header: { center: 'foodblog.ch', right: 'Seite [page]' }
       end
       format.json { render json: @recipe }
     end
