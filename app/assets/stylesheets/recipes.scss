@@ -3,5 +3,5 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // Unit and quantity should be next to each other, aligned to the space.
-td.quantity { padding-right: 0; }
-td.unit { padding-left: 0; }
+td.quantity { padding-right: 1px !important; }
+td.unit { padding-left: 1px !important; }
