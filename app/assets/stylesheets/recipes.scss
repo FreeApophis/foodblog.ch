@@ -1,3 +1,7 @@
 // Place all the styles related to the Recipes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+# Unit and quantity should be next to each other, aligned to the space.
+td.quantity { padding-right: 0; }
+td.unit { padding-left: 0; }
