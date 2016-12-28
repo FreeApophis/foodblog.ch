@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
 
   def set_commentable
     if params[:blog_id]
-      @commentable = Blog.find(params[:blog_id])
+      @commentable = Blog.friendly.find(params[:blog_id])
     else
       raise 'No commentable object present to comment'
     end

@@ -45,6 +45,8 @@ en:
     index:
       blogs: Blogs
   comments:
+    comments:
+      text_description: Thanks for writing a comment here!
   images:
   ingredients:
     edit:

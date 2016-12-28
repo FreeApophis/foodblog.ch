@@ -5,12 +5,29 @@
 
 <% bl = present(@blog) %>
 
-<p>
-  <%= bl.formatted_teaser %>
-</p>
+<div class="ui grid">
+  <div class="sixteen wide mobile eleven wide tablet eleven wide computer column">
+    <div class="ui fluid image"><%= image_tag @blog.header_image_url(:header) %></div>
 
-<%= bl.formatted_text %>
+    <p>
+      <%= bl.formatted_teaser %>
+    </p>
 
-<%= present(@blog.author).avatar %>
+    <%= bl.formatted_text %>
 
-<%= render 'comments/comments', commentable: @blog, comment: @blog.comments.build %>
+    <%= present(@blog.author).avatar %>
+
+    <%= render 'comments/comments', commentable: @blog, comment: @blog.comments.build %>
+
+  </div>
+  <div class="computer tablet only five wide column">
+    <%= render 'sidebar' %>
+  </div>
+</div>
+
+
+
+
+
+
+

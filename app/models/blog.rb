@@ -11,6 +11,8 @@ class Blog < ApplicationRecord
 
   scope :published, -> { where("published_at < ?", DateTime.now)  }
 
+  mount_uploader :header_image, BlogHeaderImageUploader
+
   def name
     title
   end

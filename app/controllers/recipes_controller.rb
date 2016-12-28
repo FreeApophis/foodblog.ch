@@ -14,7 +14,7 @@ class RecipesController < ApplicationController
       format.pdf do
         render pdf: @recipe.name, 
             layout: 'pdf.html',
-            header: { center: 'foodblog.ch', right: 'Seite [page]' }
+            footer: { center: 'foodblog.ch', right: 'Seite [page]' }
       end
       format.json { render json: @recipe }
     end

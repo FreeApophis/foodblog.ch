@@ -10,7 +10,7 @@
           <div class="post-meta-top">
             <%= bl.date_ribbon %>
           </div>
-          <div class="post-image"><img src="post_img1.jpg" alt=""></div>
+          <div class="post-image"><%= image_tag blog.header_image_url(:header) %></div>
           <div class="inner">
             <div class="post-title">
               <h2><%= bl.title_link %></h2>
@@ -42,9 +42,7 @@
     <%= paginate @blogs %>
   </div>
   <div class="computer tablet only five wide column">
-    <div class="ui piled segment">
-      <%= render 'activities/activities', activities: PublicActivity::Activity.order(created_at: :desc).first(5) %>
-    </div>
+    <%= render 'sidebar' %>
   </div>
 </div>
 
