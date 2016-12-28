@@ -38,7 +38,7 @@ class RecipePresenter < AbstractPresenter
         h.concat(h.content_tag(:tr) do
           h.content_tag(:td, class: 'right aligned quantity') do
             formatter.format(ri.amount)
-          end + h.content_tag(:td, class 'unit') do
+          end + h.content_tag(:td, class: 'unit') do
             formatted_unit(ri.unit)
           end + h.content_tag(:td) do
             ri.ingredient ? ri.ingredient.name : "UNKNOWN INGREDIENT (ID:#{ri.ingredient_id})"
