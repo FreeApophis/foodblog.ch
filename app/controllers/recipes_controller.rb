@@ -6,6 +6,9 @@ class RecipesController < ApplicationController
   end
 
   def show
+    
+    @portions = (params[:portions] || @recipe.portions).to_i
+
     respond_to do |format|
       format.html { } 
       format.pdf do

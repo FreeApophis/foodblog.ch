@@ -23,7 +23,8 @@
           <% end %>
           <%= link_to recipe_path(@recipe, :format => :pdf), class: 'ui basic orange left pointing label' do %>
             <%= icon('file pdf outline') %> PDF
-          <% end %>
+          <% end %>&nbsp;&nbsp;&nbsp;
+          <%= portions_drop_down(@portions) %>
         </div>
       </div>
     </div>
@@ -73,7 +74,7 @@
         <i class="users icon"></i>
         <%= t('.portions') %>
         <div class="detail">
-          <%= @recipe.portions %>
+          <%= @portions %>
         </div>
       </a>
     </div>
@@ -88,7 +89,7 @@
 <div class="ui stackable divided grid">
   <div class="row">
     <div class="five wide column">
-      <%= recipe_presenter.show_ingredients %>
+      <%= recipe_presenter.show_ingredients(@portions) %>
     </div>
     <div class="eleven wide column">
       <%= recipe_presenter.show_preparation_steps %>

@@ -31,13 +31,17 @@ class RecipePresenter < AbstractPresenter
     h.simple_format(m.description)
   end
 
-  def show_ingredients
+  def show_ingredients portions
     formatter = UnitNumberFormatter.new
     h.content_tag(:table, class: 'ui compact unstackable striped very basic table') do
       m.recipe_ingredients.each do |ri|
         h.concat(h.content_tag(:tr) do
           h.content_tag(:td, class: 'right aligned quantity') do
-            formatter.format(ri.amount)
+            if portions == m.portions
+              formatter.format(ri.amount)
+            else
+              formatter.format(ri.amount * portions / m.portions)
+            end
           end + h.content_tag(:td, class: 'unit') do
             formatted_unit(ri.unit)
           end + h.content_tag(:td) do

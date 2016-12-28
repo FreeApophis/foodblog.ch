@@ -85,6 +85,9 @@ en:
       portions: Portions
       minutes_unit: min
       calories_unit: kcal
+    portions:
+      one: 'One portion'
+      other: '%{count} portions'
   settings:
   units:
   users:

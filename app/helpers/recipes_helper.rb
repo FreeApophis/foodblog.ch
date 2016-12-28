@@ -8,4 +8,16 @@ module RecipesHelper
 
     link_to(icon('plus') + name, '#', class: "ui labeled icon green add_fields button", data: { id: id, fields: fields.gsub("\n", "")})
   end
+
+  def portions_drop_down portions
+    content_tag(:div, class: 'ui floating dropdown labeled search icon button') do
+      icon('users') + content_tag(:span, class: 'text') do 
+        t(:portions, scope: :recipes, count: portions)
+      end + content_tag(:div, class: 'menu') do
+        1.upto(12) do |p|
+          concat(link_to(t(:portions, scope: :recipes, count: p), portions_recipe_path(@recipe, portions: p), class: :item))
+        end
+      end
+    end
+  end
 end
