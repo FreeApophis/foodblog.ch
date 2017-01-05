@@ -19,7 +19,7 @@ class UnitsController < ApplicationController
 
     respond_to do |format|
       if @unit.save
-        format.html { redirect_to @unit, notice: 'unit was successfully created.' }
+        format.html { redirect_to @unit, notice: @unit.created_message }
         format.json { render :show, status: :created, location: @unit }
       else
         format.html { render :new }
@@ -34,7 +34,7 @@ class UnitsController < ApplicationController
   def update
     respond_to do |format|
       if @unit.update(unit_params)
-        format.html { redirect_to @unit, notice: 'unit was successfully updated.' }
+        format.html { redirect_to @unit, notice: @unit.updated_message }
         format.json { render :show, status: :ok, location: @unit }
       else
         format.html { render :edit }
@@ -46,7 +46,7 @@ class UnitsController < ApplicationController
   def destroy
     @unit.destroy
     respond_to do |format|
-      format.html { redirect_to units_url, notice: 'unit was successfully destroyed.' }
+      format.html { redirect_to units_url, notice: @unit.destroyed_message }
       format.json { head :no_content }
     end
   end

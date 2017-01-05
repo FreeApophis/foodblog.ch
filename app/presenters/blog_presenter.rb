@@ -48,7 +48,7 @@ class BlogPresenter < AbstractPresenter
   def read_more
     h.link_to m do
       h.content_tag :span do
-        h.icon('large plus') + h.t(:read_more, scope: [:blog])
+        h.icon('large plus') + h.t(:read_more, scope: :blogs)
       end
     end
   end

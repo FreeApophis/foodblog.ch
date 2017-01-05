@@ -1,7 +1,6 @@
 <h2><%= context_title @blog.title %></h2>
-<% context_action t('.edit'), edit_blog_path(@blog), :write %>
-<% context_action t('.delete'), '#', :remove %>
-<%= delete_modal(@blog, :title) %>
+<% edit_context_action @blog %>
+<% destroy_context_action @blog, :title %>
 
 <% bl = present(@blog) %>
 

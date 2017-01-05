@@ -9,12 +9,12 @@
   <div class="actions">
     <div class="ui cancel negative button">
       <i class="remove icon"></i>
-      <%= t 'no' %>
+        <%= t 'no', scope: :application %>  
     </div>
     <%= form_for(:user_session, :url => destroy_user_session_path, :html => { method: :delete, style: 'display:inline' }) do %>
       <%= button_tag class: 'ui ok positive button' do %> 
         <i class="checkmark icon"></i>
-        <%= t 'yes' %>  
+        <%= t 'yes', scope: :application %>  
       <% end %>
     <% end %>
   </div>

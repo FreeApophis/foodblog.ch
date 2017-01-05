@@ -1,8 +1,6 @@
 <h2><%= context_title @user.name %></h2>
-<% context_action t('.edit'), edit_user_path(@user), :write %>
-<% context_action t('.delete'), '#', :remove %>
-<%= delete_modal(@user, :name) %>
-
+<% edit_context_action @user %>
+<% destroy_context_action @user, :name %>
 
 <div class="ui grid">
   <div class="stackable doubling four column row">

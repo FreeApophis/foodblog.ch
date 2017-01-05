@@ -1,6 +1,5 @@
 <h2><%= context_title @ingredient.name %></h2>
-<% context_action t('.edit'), edit_ingredient_path(@ingredient), :write %>
-<% context_action t('.delete'), '#', :remove %>
-<%= delete_modal(@ingredient, :name) %>
+<% edit_context_action @ingredient %>
+<% destroy_context_action @ingredient, :name %>
 
 <%= @ingredient.description %>

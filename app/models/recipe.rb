@@ -16,4 +16,14 @@ class Recipe < ApplicationRecord
   accepts_nested_attributes_for :images, allow_destroy: true
 
   belongs_to :author, class_name: 'User'
+
+  validates :name, presence: true
+  validates_numericality_of :portions, greater_than_or_equal_to: 1
+
+  def calculate_calories
+    calories = 0.0
+    recipe_ingredients.each do |i|
+    end
+    calories
+  end
 end

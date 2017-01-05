@@ -33,6 +33,15 @@ module ApplicationHelper
     end
   end
 
+  def edit_context_action object
+    context_action I18n.t('.edit', scope: [:application, :actions]), [:edit, object], :write
+  end
+
+  def destroy_context_action object, field
+    context_action I18n.t('.destroy', scope: [:application, :actions]), '#', :remove
+    delete_modal(object, field)
+  end
+
   def context_action text, link, icon_type = nil
     content_for :actions do
       context_menu text, link, icon_type

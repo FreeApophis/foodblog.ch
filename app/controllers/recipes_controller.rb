@@ -5,8 +5,7 @@ class RecipesController < ApplicationController
     @recipes = policy_scope(Recipe).page(params[:page])
   end
 
-  def show
-    
+  def show  
     @portions = (params[:portions] || @recipe.portions).to_i
 
     respond_to do |format|
@@ -14,7 +13,7 @@ class RecipesController < ApplicationController
       format.pdf do
         render pdf: @recipe.name, 
             layout: 'pdf.html',
-            footer: { center: 'foodblog.ch', right: 'Seite [page]' }
+            footer: { left: I18n.t('recipes.controller.pdf_page'), center: 'foodblog.ch', right: I18n.t('recipes.controller.pdf_author', author: @recipe.author.name) }
       end
       format.json { render json: @recipe }
     end
@@ -32,7 +31,7 @@ class RecipesController < ApplicationController
     respond_to do |format|
       if @recipe.save
         @recipe.create_activity :create, owner: current_user
-        format.html { redirect_to @recipe, notice: 'Recipe was successfully created.' }
+        format.html { redirect_to @recipe, notice: @recipe.created_message }
         format.json { render :show, status: :created, location: @recipe }
       else
         format.html { render :new }
@@ -48,7 +47,7 @@ class RecipesController < ApplicationController
     respond_to do |format|
       if @recipe.update(correct_so(recipe_params))
         @recipe.create_activity :update, owner: current_user
-        format.html { redirect_to @recipe, notice: 'Recipe was successfully updated.' }
+        format.html { redirect_to @recipe, notice: @recipe.updated_message }
         format.json { render :show, status: :ok, location: @recipe }
       else
         format.html { render :edit }
@@ -60,7 +59,7 @@ class RecipesController < ApplicationController
   def destroy
     @recipe.destroy
     respond_to do |format|
-      format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
+      format.html { redirect_to recipes_url, notice: @recipe.destroyed_message }
       format.json { head :no_content }
     end
   end

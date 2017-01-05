@@ -4,14 +4,42 @@ en:
   # Non-specific Translations
   application:
     hello: Hello
+    guest: Guest
     ago: ago
     step: Step
     sign_in: Sign In
     sign_out: Sign Out
     more: More
     administration: Administration
-    yes: Yes
-    no: No
+    created_message: "%{model} was successfully created."
+    updated_message: "%{model} was successfully updated."
+    destroyed_message: "%{model} was successfully destroyed."
+    "yes": Yes
+    "no": No
+    cancel: Cancel
+    actions:
+      edit: Edit
+      destroy: Delete
+    menu:
+      blog: Blog
+      recipes: Recipes
+      ingredients: Ingredients
+    sign_out_modal:
+      sign_out: Sign Out
+      are_you_sure_to_sign_out: Are you sure you want to sign out?
+    delete_modal:
+      delete: Delete
+      are_you_sure_to_delete: Are you sure you want to delete this?
+    footer:
+      about: About
+      impressum: Impressum
+      site: Site
+      users: Users
+      units: Units
+      activities: Activities
+      links: Links
+    validation_message:
+      prohibited: Prohibited
   pagination:
     first: First 
     previous: Previous
@@ -42,35 +70,60 @@ en:
     index:
       activities: Activities
   blogs:
+    read_more: Read More
     index:
       blogs: Blogs
+      new_blog: New Blog Entry
+    show:
+      edit: Edit
+    edit:
+      edit_blog_entry: Edit Blog Entry
+    new:
+      new_blog_entry: Nerw Blog Entry
+    form:
+      select_image: Select Image
   comments:
     comments:
       text_description: Thanks for writing a comment here!
+      comments: Comments
+      add_comment: Comment
   images:
   ingredients:
     edit:
       edit_ingredient: Edit Ingredient
     index:
       ingredients: Ingredients
+      new_ingredient: New Ingredient
     new:
       new_ingredient: New Ingredient
     form:
       name_description: Name of the ingredient (singular)
       description_description: Description of the Ingredient
+      calories_per_volume_description: Calories per liter
+      calories_per_weight_description: Calories per kilogramm
+      calories_per_piece_description: Calories per average piece
   preparation_steps:
   recipe_ingredients:
   recipes:
+    remove_image: Remove
+    controller:
+      pdf_page: "Page [page]"
+      pdf_author: "By %{author}"
     edit:
       edit_recipe: Edit Recipe
     form:
       add_ingredient: Add Ingredient
+      description_description: Short description of the food and recipe
+      ingredients: Ingredients
+      preparation_steps: Preparation Steps
       add_preparation_step: Add Prepartion Step
+      images: Images
       add_image: Add Image
     index:
       recipes: Recipes
+      new_recipe: New Recipe
     new:
-      edit_recipe: New Recipe
+      new_recipe: New Recipe
     preparation_step:
       remove_step: Remove Step
     recipe_ingredient:
@@ -91,7 +144,20 @@ en:
       one: 'One portion'
       other: '%{count} portions'
   settings:
+    index:
+      settings: Administrative Settings
   units:
+    index:
+      units: Units
+      new_unit: New Unit
+    new:
+      new_unit: New Unit
+    edit:
+      edit_unit: Edit Unit
+    form:
+      name_description: Name of the Unit
+      abbrevation_description: Most common abbrevation
+      unit_factor_description: part of base unit (kg for weight, l for volume)
   users:
     edit:
       edit_user: Edit User

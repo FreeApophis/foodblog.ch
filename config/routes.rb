@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   end
 
   concern :portionable do
-    get '(portions/:portions)', action: :show, on: :member, as: :portions
+    get '(portions/:portions)', action: :show, on: :member, as: :portions, constraints: { portions: /[0-9]*/ }
+
   end
 
 
@@ -23,7 +24,11 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :edit, :update, :destroy], concerns: [:pageable]
 
   resources :ingredients, concerns: [:pageable]
-  resources :recipes, concerns: [:pageable, :portionable]
+  resources :recipes, concerns: [:pageable, :commentable, :portionable] do
+    collection do
+      get ':new' => 'recipes#new', as: :new, constraints: { new: /new/ }
+    end
+  end
   resources :activities, only: [:index]
   resources :settings
   resources :units

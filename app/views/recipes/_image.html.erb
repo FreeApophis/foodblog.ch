@@ -23,7 +23,7 @@
       <%= f.label t '.action' %>
       <%= f.hidden_field :_destroy %>
       <%= link_to '#', class: 'ui right labeled icon red remove_fields button' do %>
-        <% icon('remove') + t('.remove') %>
+        <% icon('remove') + t('remove_image', scope: [:recipes]) %>
       <% end %>
     </div>
   </div>

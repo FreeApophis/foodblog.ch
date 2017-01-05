@@ -12,7 +12,7 @@ class SettingsController < ApplicationController
     if @setting.value != params[:setting][:value]
       @setting.value = params[:setting][:value]
       @setting.save
-      redirect_to settings_path, notice: 'Setting has updated.'
+      redirect_to settings_path, notice: I18n.t('application.updated_message', model: @setting.class.model_name.human)
     else
       redirect_to settings_path
     end

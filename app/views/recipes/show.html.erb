@@ -1,7 +1,6 @@
 <h2><%= context_title @recipe.name %></h2>
-<% context_action t('.edit'), edit_recipe_path(@recipe), :write %>
-<% context_action t('.delete'), '#', :remove %>
-<%= delete_modal(@recipe, :name) %>
+<% edit_context_action @recipe %>
+<% destroy_context_action @recipe, :name %>
 
 <% recipe_presenter = present(@recipe) %>
 

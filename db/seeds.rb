@@ -1,10 +1,5 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 
 connection = ActiveRecord::Base.connection()
 
@@ -33,6 +28,9 @@ seed_unit('Teelöffel', 'TL', 0.005, :volume)
 seed_unit('Esslöffel', 'EL', 0.015, :volume)
 seed_unit('Tasse', 'Ta', 0.125, :volume)
 seed_unit('Stück ', 'St.', 1.0, :piece)
+seed_unit('Blat ', 'Bl.', 1.0, :piece)
+seed_unit('Bund ', 'Bd.', 1.0, :piece)
+seed_unit('Päckchen', 'PK', 1.0, :piece)
 seed_unit('Dutzend', 'Dtzd', 12.0, :piece)
 seed_unit('Gros', 'gr', 144.0, :piece)
 
