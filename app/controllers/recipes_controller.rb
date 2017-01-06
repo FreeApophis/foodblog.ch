@@ -6,16 +6,13 @@ class RecipesController < ApplicationController
   end
 
   def show  
+    viewed @recipe
     @portions = (params[:portions] || @recipe.portions).to_i
 
     respond_to do |format|
       format.html { } 
-      format.pdf do
-        render pdf: @recipe.name, 
-            layout: 'pdf.html',
-            footer: { left: I18n.t('recipes.controller.pdf_page'), center: 'foodblog.ch', right: I18n.t('recipes.controller.pdf_author', author: @recipe.author.name) }
-      end
-      format.json { render json: @recipe }
+      format.json { }
+      format.pdf { render pdf: @recipe.name, layout: 'pdf.html', footer: { left: I18n.t('recipes.controller.pdf_page'), center: 'foodblog.ch', right: I18n.t('recipes.controller.pdf_author', author: @recipe.author.name) } }
     end
   end
 

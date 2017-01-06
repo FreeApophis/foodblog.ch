@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161228201031) do
+ActiveRecord::Schema.define(version: 20170106160137) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "trackable_type"
@@ -67,12 +67,17 @@ ActiveRecord::Schema.define(version: 20161228201031) do
   create_table "ingredients", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "slug"
-    t.integer  "calories_per_volume"
-    t.integer  "calories_per_weight"
-    t.integer  "calories_per_piece"
+    t.decimal  "density",         default: "1.0", null: false
+    t.decimal  "piece",           default: "1.0", null: false
+    t.integer  "calorific_value", default: 0,     null: false
+    t.decimal  "protein",         default: "0.0", null: false
+    t.decimal  "fat",             default: "0.0", null: false
+    t.decimal  "carbohydrates",   default: "0.0", null: false
+    t.decimal  "sugar",           default: "0.0", null: false
+    t.decimal  "fiber",           default: "0.0", null: false
   end
 
   create_table "preparation_steps", force: :cascade do |t|
@@ -110,14 +115,15 @@ ActiveRecord::Schema.define(version: 20161228201031) do
     t.string   "name"
     t.integer  "author_id"
     t.text     "description"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.integer  "preparation_time"
     t.integer  "cooking_time"
     t.integer  "calories"
     t.integer  "portions"
     t.integer  "difficulty"
     t.string   "slug"
+    t.integer  "view_count",       default: 0, null: false
   end
 
   create_table "settings", force: :cascade do |t|

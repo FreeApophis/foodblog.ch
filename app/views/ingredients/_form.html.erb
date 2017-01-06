@@ -9,27 +9,71 @@
       <%= f.label :description %>
       <%= f.text_area :description, rows: Setting.text_rows, :placeholder => t('.description_description') %>
     </div>
+
     <div class="field">
-      <%= f.label :calories_per_volume %>
+      <%= f.label :density %>
       <div class="ui right labeled input">
-        <%= f.number_field :calories_per_volume, :placeholder => t('.calories_per_volume_description') %>
-        <div class="ui teal label">kcal</div>
+        <%= f.number_field :density, :placeholder => t('.density_description') %>
+        <div class="ui teal label">kg/l</div>
       </div>
     </div>
+
     <div class="field">
-      <%= f.label :calories_per_weight %>
+      <%= f.label :piece %>
       <div class="ui right labeled input">
-        <%= f.number_field :calories_per_weight, :placeholder => t('.calories_per_weight_description') %>
-        <div class="ui teal label">kcal</div>
+        <%= f.number_field :piece, :placeholder => t('.piece_description') %>
+        <div class="ui teal label">g</div>
       </div>
     </div>
+
     <div class="field">
-      <%= f.label :calories_per_piece %>
+      <%= f.label :calorific_value %>
       <div class="ui right labeled input">
-        <%= f.number_field :calories_per_piece, :placeholder => t('.calories_per_piece_description') %>
-        <div class="ui teal label">kcal</div>
+        <%= f.number_field :calorific_value, :placeholder => t('.calorific_value_description') %>
+        <div class="ui teal label">kJ</div>
       </div>
     </div>
+
+    <div class="field">
+      <%= f.label :protein %>
+      <div class="ui right labeled input">
+        <%= f.number_field :protein, :placeholder => t('.protein_description') %>
+        <div class="ui teal label">%</div>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= f.label :fat %>
+      <div class="ui right labeled input">
+        <%= f.number_field :fat, :placeholder => t('.fat_description') %>
+        <div class="ui teal label">%</div>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= f.label :carbohydrates %>
+      <div class="ui right labeled input">
+        <%= f.number_field :carbohydrates, :placeholder => t('.carbohydrates_description') %>
+        <div class="ui teal label">%</div>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= f.label :sugar %>
+      <div class="ui right labeled input">
+        <%= f.number_field :sugar, :placeholder => t('.sugar_description') %>
+        <div class="ui teal label">%</div>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= f.label :fiber %>
+      <div class="ui right labeled input">
+        <%= f.number_field :fiber, :placeholder => t('.fiber_description') %>
+        <div class="ui teal label">%</div>
+      </div>
+    </div>
+
 
     <%= f.button class: 'ui primary button' %>
     <%= link_to t(:cancel, scope: :application), ingredients_path, class: 'ui secondary button' %>

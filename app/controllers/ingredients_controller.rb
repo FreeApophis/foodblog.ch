@@ -58,6 +58,6 @@ class IngredientsController < ApplicationController
     end
 
     def ingredient_params
-      params.require(:ingredient).permit(:name, :description)
+      params.require(:ingredient).permit(:name, :description, :density, :piece, :calorific_value, :protein, :fat, :carbohydrates, :sugar, :fiber)
     end
 end

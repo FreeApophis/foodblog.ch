@@ -14,8 +14,8 @@ en:
     created_message: "%{model} was successfully created."
     updated_message: "%{model} was successfully updated."
     destroyed_message: "%{model} was successfully destroyed."
-    "yes": Yes
-    "no": No
+    "yes": "Yes"
+    "no": "No"
     cancel: Cancel
     actions:
       edit: Edit
@@ -99,9 +99,14 @@ en:
     form:
       name_description: Name of the ingredient (singular)
       description_description: Description of the Ingredient
-      calories_per_volume_description: Calories per liter
-      calories_per_weight_description: Calories per kilogramm
-      calories_per_piece_description: Calories per average piece
+      density_description: Density of Ingredient
+      piece_description: Weight of a singl average piece
+      calorific_value_description: Calorific value in kJ (not kcal)
+      protein_description: Protein in g per 100g (%)
+      fat_description: Fat in g per 100g (%)
+      carbohydrates_description: Carbohydrates incl. sugar in g per 100g (%)
+      sugar_description: Sugar in g per 100g (%)
+      fiber_description: Dietary fibre in g per 100g (%)
   preparation_steps:
   recipe_ingredients:
   recipes:

@@ -11,9 +11,15 @@ class RecipePresenter < AbstractPresenter
         else
           h.image_tag "/default.png"
         end
-      end + h.content_tag(:div, class: 'extra content') do
+      end + h.content_tag(:div, class: 'content') do
         h.content_tag(:div, class: 'header') do
           m.name
+        end
+      end + h.content_tag(:div, class: 'extra content') do
+        h.content_tag(:span, class: 'right floated') do
+          # h.icon(:heart) + "0"
+        end + h.content_tag(:span) do
+          h.icon(:eye) + m.view_count.to_s
         end
       end
     end

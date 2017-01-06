@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def viewed model
-    model.increment :view_count, model.id
+    model.increment :view_count, 1
     model.save
   end
 end
