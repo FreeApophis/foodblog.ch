@@ -3,6 +3,13 @@
     <% user_presenter = present(user) %>
 
     <div class="field">
+      <%= f.label :email %>
+      <div class="ui disabled input">
+        <%= f.text_field :email%>
+      </div>
+    </div>
+
+    <div class="field">
       <%= f.label :name %>
       <%= f.text_field :name, :placeholder => t('.name_description') %>
     </div>
