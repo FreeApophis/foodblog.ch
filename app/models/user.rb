@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   enum role: { user:  0, admin: 100 }
+  enum color: { black: 0, grey: 1, red: 2, orange: 3, yellow: 4, olive: 5, green: 6, teal: 7, blue: 8, violet: 9, purple: 10, pink: 11, brown: 12 }
 
   extend FriendlyId
   friendly_id :name, use: :slugged

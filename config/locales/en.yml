@@ -174,6 +174,21 @@ en:
       abbrevation_description: Most common abbrevation
       unit_factor_description: part of base unit (kg for weight, l for volume)
   users:
+    select_color: Select Color
+    colors:
+      red: Red
+      orange: Orange
+      yellow: Yellow
+      olive: Olive
+      green: Green
+      teal: Teal
+      blue: Blue
+      violet: Violet
+      purple: Purple
+      pink: Pink
+      brown: Brown
+      grey: Grey
+      black: Black
     edit:
       edit_user: Edit User
     index:
@@ -182,6 +197,7 @@ en:
       name_description: The name of the user
       description_description: The description of the user
       select_role: Select Role
+      select_color: Select Color
       select_image: Select Image
     joined_in: "Joined in %{year}"
     recipes_count: "%{count} Recipes"

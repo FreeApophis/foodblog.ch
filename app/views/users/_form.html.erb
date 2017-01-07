@@ -1,5 +1,6 @@
 <%= form_for(user, :html => { class: 'ui form', multipart: true }) do |f| %>
     <%= render 'validation_message', validation_object: user %>
+    <% user_presenter = present(user) %>
 
     <div class="field">
       <%= f.label :name %>
@@ -25,6 +26,11 @@
     <div class="field">
       <%= f.label :description %>
       <%= f.text_area :description, rows: Setting.text_rows, :placeholder => t('.description_description') %>
+    </div>
+
+    <div class="field">
+      <%= f.label :color %>
+      <%= user_presenter.color_dropdown(f) %>
     </div>
 
     <div class="field">

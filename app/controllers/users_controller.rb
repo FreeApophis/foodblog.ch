@@ -39,11 +39,11 @@ private
 
     def user_params
       if current_user.admin?
-        return params.require(:user).permit(:name, :description, :password, :avatar, :role)
+        return params.require(:user).permit(:name, :description, :password, :avatar, :color, :role)
       end
 
       if @user == current_user
-        return params.require(:user).permit(:name, :description, :password, :avatar)
+        return params.require(:user).permit(:name, :description, :password, :avatar, :color)
       end
 
       return params.require(:user).permit()
