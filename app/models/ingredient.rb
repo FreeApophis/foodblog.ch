@@ -7,7 +7,7 @@ class Ingredient < ApplicationRecord
   paginates_per 25
 
   validates :name, presence: true
-  validates :description, presence: true
+  #validates :description, presence: true
 
   validates_numericality_of :density, greater_than: 0.0
   validates_numericality_of :piece, greater_than_or_equal: 0.0
