@@ -23,7 +23,7 @@
           <div class="default text"><%= t '.select_role' %></div>
           <div class="menu">
             <% User.roles.each do |key, value| %>
-              <div class="item" data-value="<%= value %>"><%= key.humanize %></div>
+              <div class="item" data-value="<%= key %>"><%= key.humanize %></div>
             <% end %>
           </div>
         </div>
