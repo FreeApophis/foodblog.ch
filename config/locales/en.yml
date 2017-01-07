@@ -20,6 +20,13 @@ en:
     actions:
       edit: Edit
       destroy: Delete
+    difficulty:
+      easiest: Easiest
+      easy: Easy
+      medium: Medium
+      hard: Hard
+      hardest: Hardest
+      unrated: Not Rated
     menu:
       blog: Blog
       recipes: Recipes
@@ -119,6 +126,7 @@ en:
     form:
       add_ingredient: Add Ingredient
       description_description: Short description of the food and recipe
+      select_difficulty: Select Difficulty
       ingredients: Ingredients
       preparation_steps: Preparation Steps
       add_preparation_step: Add Prepartion Step
@@ -134,6 +142,8 @@ en:
     recipe_ingredient:
       action: Action
       remove: Remove
+      select_unit: Select Unit
+      select_ingredient: Select Ingredient
     image:
       select_image: Select Image
       action: Action
@@ -168,6 +178,11 @@ en:
       edit_user: Edit User
     index:
       users: Users
+    form:
+      name_description: The name of the user
+      description_description: The description of the user
+      select_role: Select Role
+      select_image: Select Image
     joined_in: "Joined in %{year}"
     recipes_count: "%{count} Recipes"
 

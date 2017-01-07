@@ -4,6 +4,7 @@ defaults: &defaults
   sitename: "Foodblog"
   about: "About Text!"
   text_rows: 10
+  max_portions: 30
 
 development:
   <<: *defaults

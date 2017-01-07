@@ -9,7 +9,16 @@
     <% if current_user.admin? %>
       <div class="field">
         <%= f.label :role %>
-        <%= f.select :role, User.roles.map { |key, value| [key.humanize, key] } %>
+        <div class="ui selection dropdown">
+          <%= f.hidden_field :role %>
+          <i class="dropdown icon"></i>
+          <div class="default text"><%= t '.select_role' %></div>
+          <div class="menu">
+            <% User.roles.each do |key, value| %>
+              <div class="item" data-value="<%= value %>"><%= key.humanize %></div>
+            <% end %>
+          </div>
+        </div>
       </div>
     <% end %>
 	
@@ -28,6 +37,8 @@
       </div>
     </div>
 
-    <%= f.button class: 'ui primary button' %>
-    <%= link_to t(:cancel, scope: :generic), users_path, class: 'ui secondary button' %>
+    <div class="actions">
+      <%= f.button class: 'ui primary button' %>
+      <%= link_to t(:cancel, scope: :application), user, class: 'ui secondary button' %>
+    </div>
 <% end %>

@@ -23,7 +23,7 @@
           <%= link_to recipe_path(@recipe, :format => :pdf), class: 'ui basic orange left pointing label' do %>
             <%= icon('file pdf outline') %> PDF
           <% end %>&nbsp;&nbsp;&nbsp;
-          <%= portions_drop_down(@portions) %>
+          <%= recipe_presenter.portions_drop_down(@portions) %>
         </div>
       </div>
     </div>

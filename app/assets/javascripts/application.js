@@ -52,8 +52,8 @@ var ready = function() {
     .sidebar('setting', 'mobileTransition', 'push')
     .sidebar('attach events', '.admin.item');
 
-  // Ingredient Dropdown in Recipe
-  $('.ui.search.dropdown').dropdown();
+  // Selection Dropdowns
+  $('.ui.dropdown').dropdown();
 
   // Remove Fields in Recipe
   $('form').on('click', '.remove_fields', function(event) {

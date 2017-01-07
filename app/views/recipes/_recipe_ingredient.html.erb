@@ -6,14 +6,23 @@
     </div>
     <div class="four wide field">
       <%= f.label :unit %>
-      <%= f.select :unit_id, options_for_select(Unit.all.map{ |u| [u.name, u.id]}, f.object.unit_id) %>
+      <div class="ui selection dropdown">
+        <%= f.hidden_field :unit_id %>
+        <i class="dropdown icon"></i>
+        <div class="default text"><%= t '.select_unit' %></div>
+        <div class="menu">
+          <% Unit.all.order(:name).each do |unit| %>
+            <div class="item" data-value="<%= unit.id %>"><%= unit.name %></div>
+          <% end %>
+        </div>
+      </div>
     </div>
     <div class="five wide field">
       <%= f.label :ingredient %>
       <div class="ui search selection dropdown">
         <%= f.hidden_field :ingredient_id %>
         <i class="dropdown icon"></i>
-        <div class="default text">Select Ingredient</div>
+        <div class="default text"><%= t '.select_ingredient' %></div>
         <div class="menu">
           <% Ingredient.all.order(:name).each do |ingredient| %>
             <div class="item" data-value="<%= ingredient.id %>"><%= ingredient.name %></div>

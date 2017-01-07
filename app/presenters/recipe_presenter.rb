@@ -29,6 +29,30 @@ class RecipePresenter < AbstractPresenter
     unit.abbrevation
   end
 
+  def portions_drop_down portions
+    h.content_tag(:div, class: 'ui floating dropdown labeled search icon button') do
+      h.icon('users') + h.content_tag(:span, class: 'text') do 
+        I18n.t(:portions, scope: :recipes, count: portions)
+      end + h.content_tag(:div, class: 'menu') do
+        1.upto(Setting.max_portions.to_i) do |p|
+          h.concat(h.link_to(I18n.t(:portions, scope: :recipes, count: p), h.portions_recipe_path(m, portions: p), class: :item))
+        end
+      end
+    end
+  end
+
+  def difficulty_dropdown f
+    h.content_tag(:div, class: 'ui selection dropdown') do
+      f.hidden_field(:difficulty) + h.icon(:dropdown) +
+      h.content_tag(:div, I18n.t('select_difficulty', scope: :recipes), class: 'default text') +
+      h.content_tag(:div, class: 'menu') do
+        0.upto(4) do |difficulty|
+          h.concat(h.content_tag(:div, difficulty_word(difficulty), class: 'item', 'data-value': difficulty.to_s))
+        end
+      end
+    end
+  end
+
   def difficulty_tag
     h.link_to difficulty_word(m.difficulty), '', class: "ui basic #{difficulty_color(m.difficulty)} label"   
   end
@@ -67,7 +91,25 @@ class RecipePresenter < AbstractPresenter
       end
     end
   end
+
 private
+  def difficulty_word difficulty
+    case difficulty
+      when 0
+        return I18n.t('easiest', scope: [:application, :difficulty])
+      when 1
+        return I18n.t('easy', scope: [:application, :difficulty])
+      when 2
+        return I18n.t('medium', scope: [:application, :difficulty])
+      when 3
+        return I18n.t('hard', scope: [:application, :difficulty])
+      when 4
+        return I18n.t('hardest', scope: [:application, :difficulty])
+      else
+        return I18n.t('unrated', scope: [:application, :difficulty])
+    end
+  end
+
   def difficulty_color difficulty
     case difficulty
       when 0
@@ -82,23 +124,6 @@ private
         return 'red'
       else
         return ''
-    end
-  end
-
-  def difficulty_word difficulty
-    case difficulty
-      when 0
-        return 'easiest'
-      when 1
-        return 'easy'
-      when 2
-        return 'medium'
-      when 3
-        return 'hard'
-      when 4
-        return 'hardest'
-      else
-        return 'not rated'
     end
   end
 end
