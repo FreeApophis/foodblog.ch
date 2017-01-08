@@ -1,0 +1,7 @@
+<div id="tag_cloud" class="ui tag labels">
+  <% tag_cloud Recipe.tag_counts, %w{mini small large} do |tag, css_class| %>
+    <%= link_to tag.name, tag_recipes_path(tag.name), class: "ui #{css_class} label" %>
+  <% end %>
+</div>
+
+

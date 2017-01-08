@@ -56,6 +56,7 @@ en:
     blogs: Blogs
     users: Users
     recipes: Recipes
+    tags: Tags
   public_activity:
     blog:
       create:
@@ -117,6 +118,8 @@ en:
   preparation_steps:
   recipe_ingredients:
   recipes:
+    select_tags: Select Tags
+    select_difficulty: Select Difficulty
     remove_image: Remove
     controller:
       pdf_page: "Page [page]"
@@ -124,9 +127,9 @@ en:
     edit:
       edit_recipe: Edit Recipe
     form:
+      tags: Tags
       add_ingredient: Add Ingredient
       description_description: Short description of the food and recipe
-      select_difficulty: Select Difficulty
       ingredients: Ingredients
       preparation_steps: Preparation Steps
       add_preparation_step: Add Prepartion Step

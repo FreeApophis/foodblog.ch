@@ -4,42 +4,37 @@
 
 <% recipe_presenter = present(@recipe) %>
 
-<% if @recipe.images.any? %>
-  <div class="ui stackable divided grid">
-    <div class="row">
-      <div class="eight wide column">
-        <%= nivo_slider id: "slider" do %>
-          <% @recipe.images.each do |image| %>
-            <%= image_tag image.file.url(:slide), title: image.name %>
-          <% end %>
-        <% end %>
-      </div>
-      <div class="eight wide column">
+<div class="ui stackable divided grid">
+  <div class="row">
+    <div class="eight wide column">
+      <% if @recipe.images.any? %>
+        <%= render 'slider' %>
+      <% else %>
         <%= recipe_presenter.formatted_description %>
-        <div class="ui labeled button" tabindex="0">
-          <%= link_to recipe_path(@recipe, :format => :pdf), class: 'ui red button' do %>
-            <%= icon('print') %> Print
-          <% end %>
-          <%= link_to recipe_path(@recipe, :format => :pdf), class: 'ui basic orange left pointing label' do %>
-            <%= icon('file pdf outline') %> PDF
-          <% end %>&nbsp;&nbsp;&nbsp;
-          <%= recipe_presenter.portions_drop_down(@portions) %>
-        </div>
-      </div>
+      <% end %>
+    </div>
+    <div class="eight wide column">
+      <% if @recipe.images.any? %>
+        <%= recipe_presenter.formatted_description %>
+      <% end %>
+      <%= render 'right_side', recipe_presenter: recipe_presenter %>
     </div>
   </div>
-<% else %>
-  <%= recipe_presenter.formatted_description %>
-<% end %>
-
+</div>
 
 <div class="ui grid">
-  <div class="doubling six columns row">
-    <div class="column">
-      <%= present(@recipe.author).avatar %>
-    </div>
+  <div class="doubling four columns row">
     <div class="column">
       <%= recipe_presenter.difficulty_tag  %>
+    </div>
+    <div class="column">
+      <a class="basic ui teal label">
+        <i class="doctor icon"></i>
+        <%= t('.calories') %>
+        <div class="detail">
+          <%= @recipe.calories %><%= t('.calories_unit') %>
+        </div>
+      </a>
     </div>
     <div class="column">
       <a class="ui basic teal label">
@@ -56,24 +51,6 @@
         <%= t('.cooking') %>
         <div class="detail">
           <%= @recipe.cooking_time %><%= t('.minutes_unit') %>
-        </div>
-      </a>
-    </div>
-    <div class="column">
-      <a class="basic ui teal label">
-        <i class="doctor icon"></i>
-        <%= t('.calories') %>
-        <div class="detail">
-          <%= @recipe.calories %><%= t('.calories_unit') %>
-        </div>
-      </a>
-    </div>
-    <div class="column">
-      <a class="basic ui teal label">
-        <i class="users icon"></i>
-        <%= t('.portions') %>
-        <div class="detail">
-          <%= @portions %>
         </div>
       </a>
     </div>

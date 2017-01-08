@@ -1,0 +1,17 @@
+      <div class="ui tag labels">
+        <%= recipe_presenter.tags %>
+      </div>
+
+      <div class="ui labels">
+        <div class="ui small labeled button" tabindex="0">
+          <%= link_to recipe_path(@recipe, :format => :pdf), class: 'ui small red button' do %>
+            <%= icon('print') %> Print
+          <% end %>
+          <%= link_to recipe_path(@recipe, :format => :pdf), class: 'ui small basic orange left pointing label' do %>
+            <%= icon('file pdf outline') %> PDF
+          <% end %>&nbsp;&nbsp;&nbsp;
+
+        </div>
+        <%= recipe_presenter.portions_drop_down(@portions) %>
+        <%= present(@recipe.author).avatar %>
+      </div>

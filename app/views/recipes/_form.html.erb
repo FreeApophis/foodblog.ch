@@ -19,6 +19,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :tag_list, t('.tags') %>
+    <%= recipe_presenter.tags_selection(f) %>
+  </div>
+
+  <div class="field">
     <%= f.label :description %>
     <%= f.text_area :description, rows: Setting.text_rows, :placeholder => t('.description_description') %>
   </div>

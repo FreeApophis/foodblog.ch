@@ -1,4 +1,4 @@
-<% context_title t('.recipes') %>
+<h2><%= context_title @tag || t('.recipes') %></h2>
 <% context_action t('.new_recipe'), new_recipe_path, :plus %>
 
 <div class="ui four column doubling stackable grid">

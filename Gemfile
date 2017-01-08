@@ -54,6 +54,9 @@ gem 'kaminari'
 # Friendly URL
 gem 'friendly_id'
 
+# Tagging
+gem 'acts-as-taggable-on', '~> 4.0'
+
 # Images
 gem 'carrierwave'
 gem 'carrierwave_backgrounder'

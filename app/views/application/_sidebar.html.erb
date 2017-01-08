@@ -1,3 +1,6 @@
 <div class="ui piled segment">
+  <%= render 'tag_cloud' %>
+</div>
+<div class="ui piled segment">
   <%= render 'activities/activities', activities: PublicActivity::Activity.order(created_at: :desc).first(5) %>
 </div>

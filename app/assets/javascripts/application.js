@@ -37,15 +37,6 @@ var ready = function() {
     $(this).closest('.message').transition('fade');
   });
 
-  // Search in Main Menu
-  $('.ui.search').search({
-    type: 'category',
-    minCharacters: 2,
-    apiSettings: {
-      url: '/search/{query}'
-    }
-  });
-
   // Admin Menu
   $('.sidebar')
     .sidebar('setting', 'transition', 'scale down')
@@ -55,6 +46,23 @@ var ready = function() {
   // Selection Dropdowns
   $('.ui.dropdown').dropdown();
 
+  // Search in Main Menu
+  $('.ui.search').search({
+    type: 'category',
+    minCharacters: 2,
+    apiSettings: {
+      url: '/search/{query}'
+    }
+  });
+
+  // Tag search and selection 
+  // (needs to be after the general selection dropdowns)
+  $('#tag_selection').dropdown({
+    apiSettings: {
+      url: '/tags/{query}'
+    }
+  });
+	
   // Remove Fields in Recipe
   $('form').on('click', '.remove_fields', function(event) {
      $(this).prev('input[type=hidden]').val('1');

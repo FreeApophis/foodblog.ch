@@ -1,6 +1,8 @@
 class Recipe < ApplicationRecord
   include PublicActivity::Common
 
+  acts_as_taggable
+
   extend FriendlyId
   friendly_id :name, use: :slugged
 

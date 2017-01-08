@@ -8,4 +8,8 @@ class SearchPolicy < ApplicationPolicy
   def search?
     true
   end
+
+  def tags?
+    true
+  end
 end

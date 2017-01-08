@@ -2,7 +2,12 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
   def index
-    @recipes = policy_scope(Recipe).page(params[:page])
+    @tag = params[:tag]
+    if @tag
+      @recipes = policy_scope(Recipe).tagged_with(@tag).page(params[:page])
+    else
+      @recipes = policy_scope(Recipe).page(params[:page])
+    end
   end
 
   def show  
@@ -27,7 +32,7 @@ class RecipesController < ApplicationController
 
     respond_to do |format|
       if @recipe.save
-        @recipe.create_activity :create, owner: current_user
+        # @recipe.create_activity :create, owner: current_user
         format.html { redirect_to @recipe, notice: @recipe.created_message }
         format.json { render :show, status: :created, location: @recipe }
       else
@@ -69,7 +74,7 @@ class RecipesController < ApplicationController
 
     def recipe_params
       params.require(:recipe)
-        .permit(:name, :description, :preparation_time, :cooking_time, :difficulty, :portions, 
+        .permit(:name, :description, :tag_list, :preparation_time, :cooking_time, :difficulty, :portions, 
           recipe_ingredients_attributes: [:id, :amount, :unit_id, :ingredient_id, :_destroy], 
           images_attributes: [:id, :file, :name, :_destroy],
           preparation_steps_attributes: [:id, :text, :_destroy])

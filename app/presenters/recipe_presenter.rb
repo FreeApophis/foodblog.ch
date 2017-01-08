@@ -25,6 +25,10 @@ class RecipePresenter < AbstractPresenter
     end
   end
 
+  def tags
+    m.tag_list.map { |t| h.link_to(t, h.tag_recipes_path(t), class: 'ui tag label') }.join(' ').html_safe
+  end
+
   def formatted_unit unit
     unit.abbrevation
   end
@@ -49,6 +53,15 @@ class RecipePresenter < AbstractPresenter
         0.upto(4) do |difficulty|
           h.concat(h.content_tag(:div, difficulty_word(difficulty), class: 'item', 'data-value': difficulty.to_s))
         end
+      end
+    end
+  end
+
+  def tags_selection f
+    h.content_tag(:div, id: 'tag_selection', class: 'ui multiple search selection dropdown') do
+      f.hidden_field(:tag_list, value: m.tag_list.join(',')) + h.icon(:dropdown) +
+      h.content_tag(:div, I18n.t('select_tags', scope: :recipes), class: 'default text') +
+      h.content_tag(:div, class: 'menu') do
       end
     end
   end
