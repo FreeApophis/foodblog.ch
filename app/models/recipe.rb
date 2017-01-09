@@ -23,24 +23,30 @@ class Recipe < ApplicationRecord
   validates_numericality_of :portions, greater_than_or_equal_to: 1
 
   def update_calories
-    value = 0
+    total = 0.0
 
     recipe_ingredients.each do |ri|
-      value += recipe_ingredient_calories(ri)
+      total += recipe_ingredient_calories(ri)
     end
 
-    update_attribute(:calorific_value, value)
+    update_attribute(:calorific_value, total / portions)
   end
 
   def recipe_ingredient_calories recipe_ingredient
+    cv_kg = recipe_ingredient.ingredient.calorific_value * 10
+    kg_per_g = 0.001
+
     case recipe_ingredient.unit.category
-      when :volume
-        return 10
-      when :weight      
-        return 100
-      when :piece
-        return 1000
+      when 'volume'
+        return cv_kg * recipe_ingredient.amount * recipe_ingredient.unit.unit_factor * recipe_ingredient.ingredient.density
+      when 'weight'
+        return cv_kg * recipe_ingredient.amount * recipe_ingredient.unit.unit_factor
+      when 'piece'
+        return cv_kg * recipe_ingredient.amount * recipe_ingredient.ingredient.piece * kg_per_g
+      else 
+        raise 'unknown unit'
     end
+  rescue
     0
   end
 end
