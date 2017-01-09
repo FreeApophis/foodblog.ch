@@ -1,0 +1,6 @@
+<h3><%= t '.newest_recipes' %></h2>
+<ul>
+  <% policy_scope(Recipe).order(created_at: :desc).limit(5).each do |recipe| %>
+    <li><%= link_to recipe.name, recipe %></li>
+  <% end %>
+</ul>

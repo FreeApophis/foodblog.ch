@@ -47,6 +47,9 @@ en:
       top_recipes: Top Recipes
     validation_message:
       prohibited: Prohibited
+    tag_cloud:
+      popular_tags: Popular Tags
+ 
   pagination:
     first: First 
     previous: Previous
@@ -76,6 +79,8 @@ en:
   # View Translations
   activities:
     index:
+      activities: Activities
+    activities:
       activities: Activities
   blogs:
     read_more: Read More
@@ -140,6 +145,8 @@ en:
       new_recipe: New Recipe
     new:
       new_recipe: New Recipe
+    newest:
+      newest_recipes: Newest Recipes
     preparation_step:
       remove_step: Remove Step
     recipe_ingredient:
