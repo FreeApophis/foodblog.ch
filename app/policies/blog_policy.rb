@@ -1,7 +1,7 @@
 class BlogPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all if admin?
+      return scope.all if admin?
       scope.published
     end
   end

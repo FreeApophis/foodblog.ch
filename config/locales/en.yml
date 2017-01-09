@@ -30,6 +30,7 @@ en:
       hardest: Hardest
       unrated: Not Rated
     menu:
+      sign_in: Sign In
       blog: Blog
       recipes: Recipes
       ingredients: Ingredients
@@ -102,6 +103,7 @@ en:
       text_description: Thanks for writing a comment here!
       comments: Comments
       add_comment: Comment
+      no_comments: No Comments
   images:
   ingredients:
     edit:

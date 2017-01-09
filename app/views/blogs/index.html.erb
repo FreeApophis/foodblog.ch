@@ -10,11 +10,16 @@
           <div class="post-meta-top">
             <%= bl.date_ribbon %>
           </div>
-          <div class="post-image"><%= image_tag blog.header_image_url(:header) %></div>
+          <div class="post-image">
+            <%= image_tag blog.header_image_url(:header) %>
+          </div>
+          <% unless blog.published? %>
+            <a class="ui top right attached red label">Unpublished</a>
+          <% end %>
           <div class="inner">
             <div class="post-title">
               <h2><%= bl.title_link %></h2>
-             </div>
+            </div>
             <div class="post-desc">
               <%= bl.teaser %>
             </div>
