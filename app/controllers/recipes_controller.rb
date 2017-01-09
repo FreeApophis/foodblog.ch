@@ -32,7 +32,8 @@ class RecipesController < ApplicationController
 
     respond_to do |format|
       if @recipe.save
-        # @recipe.create_activity :create, owner: current_user
+        @recipe.update_calories
+        @recipe.create_activity :create, owner: current_user
         format.html { redirect_to @recipe, notice: @recipe.created_message }
         format.json { render :show, status: :created, location: @recipe }
       else
@@ -48,7 +49,8 @@ class RecipesController < ApplicationController
   def update
     respond_to do |format|
       if @recipe.update(correct_so(recipe_params))
-        @recipe.create_activity :update, owner: current_user
+        @recipe.update_calories
+        # @recipe.create_activity :update, owner: current_user
         format.html { redirect_to @recipe, notice: @recipe.updated_message }
         format.json { render :show, status: :ok, location: @recipe }
       else

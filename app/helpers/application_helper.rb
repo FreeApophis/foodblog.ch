@@ -33,6 +33,11 @@ module ApplicationHelper
     end
   end
 
+  def format_calorific_value cval
+    joule_per_calorie = 4.182
+    I18n.t('kilo_joule', scope: :application, count: cval) + ' / ' + I18n.t('kilo_calories', scope: :application, count: (cval / joule_per_calorie).to_i)
+  end
+
   def edit_context_action object
     context_action I18n.t('.edit', scope: [:application, :actions]), [:edit, object], :write
   end

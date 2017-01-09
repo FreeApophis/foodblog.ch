@@ -75,7 +75,7 @@ var ready = function() {
     time = new Date().getTime();
     regexp = new RegExp($(this).data('id'), 'g');
     $(this).before($(this).data('fields').replace(regexp, time));
-    $('.ui.search.dropdown').dropdown();
+    $('.ui.dropdown').dropdown();
     event.preventDefault();
   });
 

@@ -17,6 +17,8 @@ en:
     "yes": "Yes"
     "no": "No"
     cancel: Cancel
+    kilo_joule: "%{count}kJ"
+    kilo_calories: "%{count}kcal"
     actions:
       edit: Edit
       destroy: Delete
@@ -120,6 +122,16 @@ en:
       carbohydrates_description: Carbohydrates incl. sugar in g per 100g (%)
       sugar_description: Sugar in g per 100g (%)
       fiber_description: Dietary fibre in g per 100g (%)
+    show:
+      nutritive_value_per_100_g: Nutritive Value / 100g
+      calorific_value: Calorific Value
+      protein: Protein
+      carbohydrates: Carbohydrates
+      thereof_sugar: thereof Sugar
+      fat: Fat
+      dietary_fiber: Dietary Fiber
+      density: Density
+      piece: Piece
   preparation_steps:
   recipe_ingredients:
   recipes:

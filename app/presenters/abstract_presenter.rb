@@ -14,12 +14,12 @@ class AbstractPresenter < SimpleDelegator
     @model
   end
 
-  def validation_errors
+  def validation_errors object
     if m.errors.any?
       h.content_tag(:div, id: 'error_explanation') do
         h.content_tag(:h2, I18n.t('validation_error', scope: :application)) +
         h.content_tag(:ul) do
-         recipe.errors.full_messages.each do |message|
+         object.errors.full_messages.each do |message|
            h.concat(h.content_tag(:li, message))
           end 
         end

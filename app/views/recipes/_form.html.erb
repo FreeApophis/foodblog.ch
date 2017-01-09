@@ -1,6 +1,6 @@
 <%= form_for(recipe, html: { class: 'ui form' }, multipart: true ) do |f| %>
   <% recipe_presenter = present(recipe) %>
-  <% recipe_presenter.validation_errors %>
+  <% recipe_presenter.validation_errors(recipe) %>
 
   <% if recipe.errors.any? %>
     <div id="error_explanation">
@@ -31,11 +31,17 @@
   <div class="fields">
     <div class="four wide field">
       <%= f.label :preparation_time %>
-      <%= f.number_field :preparation_time %>
+      <div class="ui right labeled input">
+        <%= f.number_field :preparation_time %>
+        <div class="ui basic label">min</div>
+      </div>
     </div>
     <div class="four wide field">
       <%= f.label :cooking_time %>
-      <%= f.number_field :cooking_time %>
+      <div class="ui right labeled input">
+        <%= f.number_field :cooking_time %>
+        <div class="ui basic label">min</div>
+      </div>
     </div>
     <div class="four wide field">
       <%= f.label :difficulty %>

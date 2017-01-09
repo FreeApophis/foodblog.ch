@@ -6,18 +6,22 @@
     <tr>
       <th>Name</th>
       <th>Description</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @ingredients.each do |ingredient| %>
       <tr>
-        <td><%= ingredient.name %></td>
+        <td><%= link_to ingredient.name, ingredient %></td>
         <td><%= ingredient.description %></td>
-        <td><%= link_to 'Show', ingredient %></td>
-        <td><%= link_to 'Edit', edit_ingredient_path(ingredient) %></td>
-        <td><%= link_to 'Destroy', ingredient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <% if policy(ingredient).edit? %>
+            <%= link_to icon(:write), edit_ingredient_path(ingredient) %>
+          <% end %>
+          <% if policy(ingredient).destroy? %>
+            <%= link_to icon(:remove), ingredient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
       </tr>
     <% end %>
   </tbody>

@@ -13,7 +13,7 @@
     <div class="field">
       <%= f.label :density %>
       <div class="ui right labeled input">
-        <%= f.number_field :density, :placeholder => t('.density_description') %>
+        <%= f.number_field :density, :placeholder => t('.density_description'), :step => 0.001 %>
         <div class="ui teal label">kg/l</div>
       </div>
     </div>
@@ -21,7 +21,7 @@
     <div class="field">
       <%= f.label :piece %>
       <div class="ui right labeled input">
-        <%= f.number_field :piece, :placeholder => t('.piece_description') %>
+        <%= f.number_field :piece, :placeholder => t('.piece_description'), :step => 0.1 %>
         <div class="ui teal label">g</div>
       </div>
     </div>
@@ -37,7 +37,7 @@
     <div class="field">
       <%= f.label :protein %>
       <div class="ui right labeled input">
-        <%= f.number_field :protein, :placeholder => t('.protein_description') %>
+        <%= f.number_field :protein, :placeholder => t('.protein_description'), :step => 0.1 %>
         <div class="ui teal label">%</div>
       </div>
     </div>
@@ -45,7 +45,7 @@
     <div class="field">
       <%= f.label :fat %>
       <div class="ui right labeled input">
-        <%= f.number_field :fat, :placeholder => t('.fat_description') %>
+        <%= f.number_field :fat, :placeholder => t('.fat_description'), :step => 0.1 %>
         <div class="ui teal label">%</div>
       </div>
     </div>
@@ -53,7 +53,7 @@
     <div class="field">
       <%= f.label :carbohydrates %>
       <div class="ui right labeled input">
-        <%= f.number_field :carbohydrates, :placeholder => t('.carbohydrates_description') %>
+        <%= f.number_field :carbohydrates, :placeholder => t('.carbohydrates_description'), :step => 0.1 %>
         <div class="ui teal label">%</div>
       </div>
     </div>
@@ -61,7 +61,7 @@
     <div class="field">
       <%= f.label :sugar %>
       <div class="ui right labeled input">
-        <%= f.number_field :sugar, :placeholder => t('.sugar_description') %>
+        <%= f.number_field :sugar, :placeholder => t('.sugar_description'), :step => 0.1 %>
         <div class="ui teal label">%</div>
       </div>
     </div>
@@ -69,7 +69,7 @@
     <div class="field">
       <%= f.label :fiber %>
       <div class="ui right labeled input">
-        <%= f.number_field :fiber, :placeholder => t('.fiber_description') %>
+        <%= f.number_field :fiber, :placeholder => t('.fiber_description'), :step => 0.1 %>
         <div class="ui teal label">%</div>
       </div>
     </div>
@@ -78,3 +78,4 @@
     <%= f.button class: 'ui primary button' %>
     <%= link_to t(:cancel, scope: :application), ingredients_path, class: 'ui secondary button' %>
 <% end %>
+

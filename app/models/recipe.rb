@@ -22,10 +22,25 @@ class Recipe < ApplicationRecord
   validates :name, presence: true
   validates_numericality_of :portions, greater_than_or_equal_to: 1
 
-  def calculate_calories
-    calories = 0.0
-    recipe_ingredients.each do |i|
+  def update_calories
+    value = 0
+
+    recipe_ingredients.each do |ri|
+      value += recipe_ingredient_calories(ri)
     end
-    calories
+
+    update_attribute(:calorific_value, value)
+  end
+
+  def recipe_ingredient_calories recipe_ingredient
+    case recipe_ingredient.unit.category
+      when :volume
+        return 10
+      when :weight      
+        return 100
+      when :piece
+        return 1000
+    end
+    0
   end
 end

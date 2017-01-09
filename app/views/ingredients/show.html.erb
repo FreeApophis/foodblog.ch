@@ -2,4 +2,67 @@
 <% edit_context_action @ingredient %>
 <% destroy_context_action @ingredient, :name %>
 
-<%= @ingredient.description %>
+<div class="ui stackable divided grid">
+  <div class="row">
+    <div class="ten wide column">
+      <%= @ingredient.description %>
+    </div>
+    <div class="six wide column">
+<h4><%=  t '.nutritive_value_per_100_g' %></h4>
+
+<table class="ui very basic unstackable table">
+  <tbody>
+    <% if @ingredient.calorific_value > 0.0 %>
+      <tr>
+        <td><strong><%= t '.calorific_value'  %></strong></td>
+        <td><%= format_calorific_value(@ingredient.calorific_value) %></td>
+      </tr>
+    <% end %>
+    <% if @ingredient.protein > 0.0 %>
+      <tr>
+        <td><strong><%= t '.protein' %></strong></td>
+        <td><%= @ingredient.protein %>g</td>
+      </tr>
+    <% end %>
+    <% if @ingredient.carbohydrates > 0.0 %>
+      <tr>
+        <td><strong><%= t '.carbohydrates' %></strong></td>
+        <td><%= @ingredient.carbohydrates %>g</td>
+      </tr>
+    <% end %>
+    <% if @ingredient.sugar > 0.0 %>
+      <tr>
+        <td><strong><%= t '.thereof_sugar' %></strong></td>
+        <td><%= @ingredient.sugar %>g</td>
+      </tr>
+    <% end %>
+    <% if @ingredient.fat > 0.0 %>
+      <tr>
+        <td><strong><%= t '.fat' %></strong></td>
+        <td><%= @ingredient.fat %>g</td>
+      </tr>
+    <% end %>
+    <% if @ingredient.fiber > 0.0 %>
+      <tr>
+        <td><strong><%= t '.dietary_fiber' %></strong></td>
+        <td><%= @ingredient.fiber %>g</td>
+      </tr>
+    <% end %>
+    <% if @ingredient.density > 0.0 %>
+      <tr>
+        <td><strong><%= t '.density' %></strong></td>
+        <td><%= @ingredient.density %>kg/l</td>
+      </tr>
+    <% end %>
+    <% if @ingredient.piece > 0.0 %>
+      <tr>
+        <td><strong><%= t '.piece' %></strong></td>
+        <td><%= @ingredient.piece %>g</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+</div>
