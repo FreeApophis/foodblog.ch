@@ -44,7 +44,7 @@ en:
       users: Users
       units: Units
       activities: Activities
-      links: Links
+      top_recipes: Top Recipes
     validation_message:
       prohibited: Prohibited
   pagination:

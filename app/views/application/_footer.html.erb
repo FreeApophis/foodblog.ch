@@ -17,9 +17,11 @@
         </div>
       </div>
       <div class="column">
-        <h3><%= t('.links') %></h3>
+        <h3><%= t('.top_recipes') %></h3>
         <div class="ui inverted link list">
-          <%= link_to "Todo", users_path, class: 'item' %>
+          <% policy_scope(Recipe).order(view_count: :desc).limit(5).each do |recipe| %>
+            <%= link_to recipe.name, recipe, class: 'item' %>
+          <% end %>
         </div>
       </div>
     </div>
