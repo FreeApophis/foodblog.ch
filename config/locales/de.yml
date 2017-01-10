@@ -1,23 +1,255 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
+# Primary Translation File: English
 
 en:
-  hello: "Hello world"
+  # Non-specific Translations
+  application:
+    hello: Hallo
+    guest: Gast
+    ago: zurück
+    step: Schritt
+    sign_in: Einloggen
+    sign_out: Ausloggen
+    more: mehr
+    administration: Administration
+    created_message: "%{model} erfolgreich erstellt."
+    updated_message: "%{model} erfolgreich aktualisiert."
+    destroyed_message: "%{model}erfolgreich gelöscht."
+    "yes": "Ja"
+    "no": "Nein"
+    cancel: abbrechen
+    kilo_joule: "%{count}kJ"
+    kilo_calories: "%{count}kcal"
+    actions:
+      edit: Bearbeiten
+      destroy: Löschen
+    difficulty:
+      easiest: Easiest
+      easy: Easy
+      medium: Medium
+      hard: Hard
+      hardest: Hardest
+      unrated: nicht bewertet
+    menu:
+      sign_in: Einloggen
+      blog: Blog
+      recipes: Rezepte
+      ingredients: Zutaten
+    sign_out_modal:
+      sign_out: Ausloggen
+      are_you_sure_to_sign_out: Bist du sicher, dass du dich Ausloggen möchtest?
+    delete_modal:
+      delete: Löschen
+      are_you_sure_to_delete: Bist du sicher, dass du das Löschen möchtest?
+    footer:
+      about: Über
+      impressum: Impressum
+      site: Seite
+      users: Benutzer
+      units: Einheit
+      activities: Aktivitäten
+      top_recipes: Top Rezepte
+    validation_message:
+      prohibited: nicht zulässig
+    tag_cloud:
+      popular_tags: Popular Tags
+ 
+  pagination:
+    first: Erste
+    previous: Vorherige
+    next: Nächste
+    last: Letzte
+  search:
+    blogs: Blogs
+    users: Benutzer
+    recipes: Rezepte
+    tags: Tags
+  public_activity:
+    blog:
+      create:
+        new_blog_article: "Neuer Blog-Eintrag %{article} geschrieben von %{user}"
+      view:
+        view_blog_article: "Blog-Eintrag %{article} angeschaut von %{user}"
+    comment:
+      create:
+        new_comment: "%{user} hat einen neuen Kommentar verfasst %{commentable}"
+    recipe:
+      create:
+        new_recipe: "Neues Rezept %{recipe} veröffentlicht von %{user}"
+      update:
+        update_recipe: "Rezept %{recipe} aktualisiert von %{user}"
+
+
+  # View Translations
+  activities:
+    index:
+      activities: Aktivitäten
+    activities:
+      activities: Aktivitäten
+  blogs:
+    read_more: Lies mehr
+    index:
+      blogs: Blogs
+      new_blog: Neuer Blog-Eintrag
+    show:
+      edit: Bearbeiten
+    edit:
+      edit_blog_entry: Bearbeite Blog-Eintrag
+    new:
+      new_blog_entry: Neuer Blog-Eintrag
+    form:
+      select_image: Bild auswählen
+  comments:
+    comments:
+      text_description: Danke für deinen Kommentar!
+      comments: Kommentare
+      add_comment: Kommentare hinzufügen
+      no_comments: Keine Kommentare
+  images:
+  ingredients:
+    edit:
+      edit_ingredient: Zutaten bearbeiten
+    index:
+      ingredients: Zutaten
+      new_ingredient: Neue Zutat
+    new:
+      new_ingredient: Neue Zutat
+    form:
+      name_description: Zutatenname (singular)
+      description_description: Beschreibung der Zutat
+      density_description: Dichte der Zutat
+      piece_description: Gewicht eines durchschnittliches Stückes
+      calorific_value_description: Brennwert in kJ (nicht kcal)
+      protein_description: Proteine in g per 100g (%)
+      fat_description: Fett in g per 100g (%)
+      carbohydrates_description: Kohlenhydrate inkl. Zucker in g per 100g (%)
+      sugar_description: Zucker in g per 100g (%)
+      fiber_description: Ballaststoffe in g per 100g (%)
+    show:
+      nutritive_value_per_100_g: Nährwerte / 100g
+      calorific_value: Brennwert
+      protein: Proteine
+      carbohydrates: Kohlenhydrate
+      thereof_sugar: davon Zucker
+      fat: Fett
+      dietary_fiber: Ballaststoffe
+      density: Dichte
+      piece: Stück
+  preparation_steps:
+  recipe_ingredients:
+  recipes:
+    select_tags: Tags auswählen
+    select_difficulty: Schwierigkeit auswählen
+    remove_image: Entfernen
+    controller:
+      pdf_page: "Seite [page]"
+      pdf_author: "By %{author}"
+    edit:
+      edit_recipe: Rezept bearbeiten
+    form:
+      tags: Tags
+      add_ingredient: Zutat hinzufügen
+      description_description: Kurzbeschreibung 
+      ingredients: Zutaten
+      preparation_steps: Zubereitungsschritte
+      add_preparation_step: Zubereitungsschritt hinzufügen
+      images: Bilder
+      add_image: Bild hinzufügen
+    index:
+      recipes: Rezepte
+      new_recipe: Neues Rezept
+    new:
+      new_recipe: Neues Rezept
+    newest:
+      newest_recipes: Neuste Rezepte
+    preparation_step:
+      remove_step: Schritt entfernen
+    recipe_ingredient:
+      action: Aktionen
+      remove: Entfernen
+      select_unit: Einheit auswählen
+      select_ingredient: Zutat auswählen
+    image:
+      select_image: Bild auswählen
+      action: Aktionen
+    show:
+      recipe_instructions: Anleitung
+      preparation: Zubereitung
+      cooking: Kochen
+      calories: Kalorien
+      portions: Portionen
+      minutes_unit: min
+      calories_unit: kcal
+    portions:
+      one: 'Eine Portion'
+      other: '%{count} Portionen'
+  settings:
+    index:
+      settings: Administrative Einstellungen
+  units:
+    index:
+      units: Einheiten
+      new_unit: Neue Einheit
+    new:
+      new_unit: Neue Einheit
+    edit:
+      edit_unit: Einheit bearbeiten
+    form:
+      name_description: Name der Einheit
+      abbrevation_description: gebräuchliche Abkürzung
+      unit_factor_description: Teil der Basiseinheit (kg for weight, l for volume)
+  users:
+    select_color: Wähle eine Farbe
+    colors:
+      red: Rot
+      orange: Orange
+      yellow: Gelb
+      olive: Olive
+      green: Grün
+      teal: Petrol
+      blue: Blau
+      violet: Violett
+      purple: Lila
+      pink: Pink
+      brown: Braun
+      grey: Grau
+      black: Schwarz
+    edit:
+      edit_user: Bearbeite Benutzer
+    index:
+      users: Benutzer
+    form:
+      name_description: Name des Benutzers 
+      description_description: Beschreibung des Benutzers
+      select_role: Rolle auswählen
+      select_color: Wähle eine Farbe
+      select_image: Wähle ein Bild aus
+    joined_in: "Beigetreten %{year}"
+    recipes_count: "%{count} Rezepte"
+
+  # Model Translations
+  activerecord: # Model name and attribute overrides
+    models:
+      activity: Aktivität
+      blog: Blog
+      comment: Kommentar
+      image: Bild
+      ingredient: Zutat
+      preparation_step: Zubereitungsschritt
+      recipe_ingredient: Zutaten
+      recipe: Rezept
+      setting: Setting
+      unit: Einheit
+      user: Benutzer
+    attributes:
+      activity:
+      blog:
+      comment:
+        text: Text
+      image:
+      ingredient:
+      preparation_step:
+      recipe_ingredient:
+      recipe:
+      setting:
+      unit:
+      user:
