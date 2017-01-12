@@ -8,67 +8,54 @@
 
 <em><%= recipe_presenter.formatted_description %></em>
 
-<div class="ui grid">
-  <div class="doubling six columns row">
-    <div class="column">
-      <%= present(@recipe.author).avatar %>
-    </div>
-    <div class="column">
-      <%= recipe_presenter.difficulty_tag  %>
-    </div>
-    <div class="column">
-      <a class="ui basic teal label">
-        <i class="wait icon"></i>
-        <%= t('.preparation') %>
-        <div class="detail">
-          <%= @recipe.preparation_time %><%= t('.minutes_unit') %>
-        </div>
-      </a>
-    </div>
-    <div class="column">
-      <a class="ui basic teal label">
-        <i class="wait icon"></i>
-        <%= t('.cooking') %>
-        <div class="detail">
-          <%= @recipe.cooking_time %><%= t('.minutes_unit') %>
-        </div>
-      </a>
-    </div>
-    <div class="column">
-      <a class="basic ui teal label">
-        <i class="doctor icon"></i>
-        <%= t('.calories') %>
-        <div class="detail">
-          <%= @recipe.calorific_value %>
-        </div>
-      </a>
-    </div>
-    <div class="column">
-      <a class="basic ui teal label">
-        <i class="users icon"></i>
-        <%= t('.portions') %>
-        <div class="detail">
-          <%= @recipe.portions %>
-        </div>
-      </a>
-    </div>
-  </div>
-</div>
-
 <h4 class="ui horizontal divider header">
-  <i class="food icon"></i>
   <%= t('.recipe_instructions') %>
 </h4>
 
-<div class="ui stackable divided grid">
-  <div class="row">
-    <div class="five wide column">
-      <%= recipe_presenter.show_ingredients @portions %>
-    </div>
-    <div class="eleven wide column">
-      <%= recipe_presenter.show_preparation_steps %>
-    </div>
+<div class="ui grid">
+  <div class="five wide column">
+    <%= recipe_presenter.show_ingredients @portions %>
+  </div>
+  <div class="ten wide column">
+    <%= recipe_presenter.show_preparation_steps %>
   </div>
 </div>
 
+<hr />
 
+<table class="">
+  <tbody>
+    <tr>
+      <td>
+        <%= t('.calories') %>
+      </td>
+      <td>
+        <%= format_calorific_value(@recipe.calorific_value) %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= t('.portions') %>
+      </td>
+      <td>
+        <%= @recipe.portions %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= t('.preparation') %>
+      </td>
+      <td>
+        <%= @recipe.preparation_time %><%= t('.minutes_unit') %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= t('.cooking') %>
+      </td>
+      <td>
+        <%= @recipe.cooking_time %><%= t('.minutes_unit') %>
+      </td>
+    </tr>
+  </tbody>
+</table>
