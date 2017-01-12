@@ -13,5 +13,7 @@ module Foodblog
     # -- all .rb files in that directory are automatically loaded.
 
     config.action_dispatch.rescue_responses["Pundit::NotAuthorizedError"] = :forbidden
+
+    config.assets.precompile += %w( pdf.css )
   end
 end
