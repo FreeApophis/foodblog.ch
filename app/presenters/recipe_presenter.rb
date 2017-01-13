@@ -89,6 +89,8 @@ class RecipePresenter < AbstractPresenter
             formatted_unit(ri.unit)
           end + h.content_tag(:td) do
             ri.ingredient ? ri.ingredient.name : "UNKNOWN INGREDIENT (ID:#{ri.ingredient_id})"
+          end + h.content_tag(:td) do
+            ri.ingredient ? ri.calculate_calories.to_s + 'kJ' : "-"
           end
         end)
       end

@@ -26,7 +26,7 @@ class Recipe < ApplicationRecord
     total = 0.0
 
     recipe_ingredients.each do |ri|
-      total += recipe_ingredient_calories(ri)
+      total += ri.calculate_calories
     end
 
     update_attribute(:calorific_value, total / portions)
