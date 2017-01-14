@@ -39,7 +39,7 @@ class RecipePresenter < AbstractPresenter
         I18n.t(:portions, scope: :recipes, count: portions)
       end + h.content_tag(:div, class: 'menu') do
         1.upto(Setting.max_portions.to_i) do |p|
-          h.concat(h.link_to(I18n.t(:portions, scope: :recipes, count: p), h.portions_recipe_path(m, portions: p), class: :item))
+          h.concat(h.link_to(I18n.t(:portions, scope: :recipes, count: p), h.portions_recipe_path(m, portions: p), class: :item, rel: 'nofollow'))
         end
       end
     end
@@ -88,9 +88,9 @@ class RecipePresenter < AbstractPresenter
           end + h.content_tag(:td, class: 'unit') do
             formatted_unit(ri.unit)
           end + h.content_tag(:td) do
-            ri.ingredient ? ri.ingredient.name : "UNKNOWN INGREDIENT (ID:#{ri.ingredient_id})"
+            ri.ingredient ? h.link_to(ri.ingredient.name, ri.ingredient) : "UNKNOWN INGREDIENT (ID:#{ri.ingredient_id})"
           end + h.content_tag(:td) do
-            ri.ingredient ? ri.calculate_calories.to_s + 'kJ' : "-"
+            ri.ingredient ? ri.calculate_calorific_value.to_i.to_s + 'kJ' : "-"
           end
         end)
       end

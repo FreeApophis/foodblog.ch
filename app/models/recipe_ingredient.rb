@@ -3,7 +3,7 @@ class RecipeIngredient < ApplicationRecord
   belongs_to :ingredient
   belongs_to :unit
 
-  def calculate_calories
+  def calculate_calorific_value
     cv_kg = ingredient.calorific_value * 10
     kg_per_g = 0.001
 

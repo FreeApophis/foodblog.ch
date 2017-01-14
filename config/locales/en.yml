@@ -59,10 +59,11 @@ en:
     next: Next
     last: Last
   search:
-    blogs: Blogs
+    blogs: Blog Items
     users: Users
     recipes: Recipes
     tags: Tags
+    ingredients: Ingredients
   public_activity:
     blog:
       create:

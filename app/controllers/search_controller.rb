@@ -38,14 +38,14 @@ class SearchController < ApplicationController
   def json_search
     return unless @query
 
-    { success: true, results: [search_tags, search_recipes, search_blog, search_user] }
+    { success: true, results: [search_tags, search_recipes, search_blogs, search_users, search_ingredients] }
   end
 
   def p_result category
     return { name: I18n.t(category, scope: :search), results: [] }
   end
 
-  def search_blog
+  def search_blogs
     result = p_result :blogs
 
     policy_scope(Blog).where("blogs.text LIKE ?","%#{@query}%").limit(3).order(:title).each do |blog|
@@ -75,11 +75,21 @@ class SearchController < ApplicationController
     result
   end
 
-  def search_user
+  def search_users
     result = p_result :users
 
     policy_scope(User).where("users.name LIKE ?","%#{@query}%").limit(3).order(:name).each do |user|
       result[:results] << { title: user.name, description: user.email, url: user_path(user) }
+    end
+
+    result
+  end
+
+  def search_ingredients
+    result = p_result :ingredients
+
+    policy_scope(Ingredient).where("ingredients.name LIKE ?","#{@query}%").limit(3).order(:name).each do |ingredient|
+      result[:results] << { title: ingredient.name, description: ingredient.description, url: ingredient_path(ingredient) }
     end
 
     result

@@ -63,6 +63,7 @@ de:
     users: Benutzer
     recipes: Rezepte
     tags: Tags
+    ingredients: Zutaten
   public_activity:
     blog:
       create:

@@ -26,27 +26,9 @@ class Recipe < ApplicationRecord
     total = 0.0
 
     recipe_ingredients.each do |ri|
-      total += ri.calculate_calories
+      total += ri.calculate_calorific_value
     end
 
     update_attribute(:calorific_value, total / portions)
-  end
-
-  def recipe_ingredient_calories recipe_ingredient
-    cv_kg = recipe_ingredient.ingredient.calorific_value * 10
-    kg_per_g = 0.001
-
-    case recipe_ingredient.unit.category
-      when 'volume'
-        return cv_kg * recipe_ingredient.amount * recipe_ingredient.unit.unit_factor * recipe_ingredient.ingredient.density
-      when 'weight'
-        return cv_kg * recipe_ingredient.amount * recipe_ingredient.unit.unit_factor
-      when 'piece'
-        return cv_kg * recipe_ingredient.amount * recipe_ingredient.ingredient.piece * kg_per_g
-      else 
-        raise 'unknown unit'
-    end
-  rescue
-    0
   end
 end
