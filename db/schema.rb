@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170109125036) do
+ActiveRecord::Schema.define(version: 20170121174253) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "trackable_type"
@@ -64,6 +64,14 @@ ActiveRecord::Schema.define(version: 20170109125036) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
+  create_table "hints", force: :cascade do |t|
+    t.string   "text"
+    t.integer  "recipe_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_hints_on_recipe_id"
+  end
+
   create_table "ingredients", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -78,6 +86,23 @@ ActiveRecord::Schema.define(version: 20170109125036) do
     t.decimal  "carbohydrates",   default: "0.0", null: false
     t.decimal  "sugar",           default: "0.0", null: false
     t.decimal  "fiber",           default: "0.0", null: false
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.string   "title"
+    t.string   "sidebar"
+    t.string   "menu_title"
+    t.text     "content"
+    t.integer  "left"
+    t.integer  "right",                      null: false
+    t.integer  "parent_id",                  null: false
+    t.integer  "depth",          default: 0, null: false
+    t.integer  "children_count", default: 0, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["left"], name: "index_pages_on_left"
+    t.index ["parent_id"], name: "index_pages_on_parent_id"
+    t.index ["right"], name: "index_pages_on_right"
   end
 
   create_table "preparation_steps", force: :cascade do |t|

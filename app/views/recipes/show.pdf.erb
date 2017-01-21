@@ -18,6 +18,12 @@
   </div>
   <div class="ten wide column">
     <%= recipe_presenter.show_preparation_steps %>
+
+      <% @recipe.hints.each do |hint| %>
+        <div>
+          <strong><%= t '.tip' %>:</strong><%= hint.text %>
+        </div>
+      <% end %>
   </div>
 </div>
 

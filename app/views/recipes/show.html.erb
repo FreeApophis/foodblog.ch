@@ -69,6 +69,14 @@
     </div>
     <div class="eleven wide column">
       <%= recipe_presenter.show_preparation_steps %>
+      <% @recipe.hints.each do |hint| %>
+        <div class="ui yellow message" style="width: 40%; float: right; margin-left: 1em;">
+          <div class="header">
+            <%= t '.tip' %>
+          </div>
+          <%= hint.text %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

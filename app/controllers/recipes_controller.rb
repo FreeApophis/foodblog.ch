@@ -79,7 +79,8 @@ class RecipesController < ApplicationController
         .permit(:name, :description, :tag_list, :preparation_time, :cooking_time, :difficulty, :portions, 
           recipe_ingredients_attributes: [:id, :amount, :unit_id, :ingredient_id, :_destroy], 
           images_attributes: [:id, :file, :name, :_destroy],
-          preparation_steps_attributes: [:id, :text, :_destroy])
+          preparation_steps_attributes: [:id, :text, :_destroy],
+          hints_attributes: [:id, :text])
     end
   def correct_so params
     if params && params[:preparation_steps_attributes]

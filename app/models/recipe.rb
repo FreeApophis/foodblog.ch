@@ -17,6 +17,9 @@ class Recipe < ApplicationRecord
   has_many :images, class_name: 'RecipeImage', foreign_key: 'recipe_id'
   accepts_nested_attributes_for :images, allow_destroy: true
 
+  has_many :hints
+  accepts_nested_attributes_for :hints, allow_destroy: true
+
   belongs_to :author, class_name: 'User'
 
   validates :name, presence: true

@@ -71,6 +71,15 @@
     <%= link_to_add_fields t('.add_preparation_step'), f, :preparation_steps %>
   </div>
 
+  <h3><%= t('.hints') %></h3>
+  <%= f.fields_for :hints do |i| %>
+    <% render 'hint', f: i %>
+  <% end %>
+
+  <div class="field">
+    <%= link_to_add_fields t('.add_hint'), f, :hints %>
+  </div>
+
   <h3><%= t('.images') %></h3>
   <%= f.fields_for :images do |i| %>
     <% render 'image', f: i %>

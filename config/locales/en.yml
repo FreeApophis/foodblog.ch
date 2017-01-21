@@ -140,6 +140,8 @@ en:
   recipes:
     select_tags: Select Tags
     select_difficulty: Select Difficulty
+    remove_preparation_step: Remove step
+    remove_hint: Remove hint
     remove_image: Remove
     controller:
       pdf_page: "Page [page]"
@@ -153,6 +155,8 @@ en:
       ingredients: Ingredients
       preparation_steps: Preparation Steps
       add_preparation_step: Add Prepartion Step
+      hints: Hints
+      add_hint: Add Hint
       images: Images
       add_image: Add Image
     index:
@@ -162,8 +166,6 @@ en:
       new_recipe: New Recipe
     newest:
       newest_recipes: Newest Recipes
-    preparation_step:
-      remove_step: Remove Step
     recipe_ingredient:
       action: Action
       remove: Remove
@@ -180,6 +182,7 @@ en:
       portions: Portions
       minutes_unit: min
       calories_unit: kcal
+      tip: Tip
     portions:
       one: 'One portion'
       other: '%{count} portions'
