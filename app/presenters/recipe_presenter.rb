@@ -17,7 +17,7 @@ class RecipePresenter < AbstractPresenter
         end
       end + h.content_tag(:div, class: 'extra content') do
         h.content_tag(:span, class: 'right floated') do
-          # h.icon(:heart) + "0"
+         h.icon(:comments) + m.comments_count.to_s
         end + h.content_tag(:span) do
           h.icon(:eye) + m.view_count.to_s
         end
