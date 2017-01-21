@@ -41,6 +41,20 @@
     </div>
 
     <div class="field">
+      <%= f.label :language %>
+        <div class="ui selection dropdown">
+          <%= f.hidden_field :language_id %>
+          <i class="dropdown icon"></i>
+          <div class="default text"><%= t '.select_language' %></div>
+          <div class="menu">
+            <% Language.all.each do |language| %>
+              <div class="item" data-value="<%= language.id %>"><%= language.name %></div>
+            <% end %>
+          </div>
+        </div>
+    </div>
+
+    <div class="field">
       <%= f.label :avatar %>
       <div>
         <%= f.label :avatar, class: "ui teal icon button" do %>

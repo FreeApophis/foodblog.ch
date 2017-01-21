@@ -14,6 +14,8 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
+  belongs_to :language
   has_many :recipes, foreign_key: :author_id
   has_many :blogs, foreign_key: :author_id
+  has_many :comments
 end

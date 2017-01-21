@@ -10,6 +10,13 @@ def seed_unit name, abbr, factor, category
   end
 end
 
+def seed_language iso_639_1, iso_639_2, name
+  unit = Language.find_by_iso_639_1 iso_639_1
+  unless unit
+    Language.create iso_639_1: iso_639_1, iso_639_2: iso_639_2, name: name
+  end
+end
+
 seed_unit('Milligramm', 'g', 0.000001, :weight)
 seed_unit('Gramm', 'g', 0.001, :weight)
 seed_unit('Dekagramm', 'dag', 0.01, :weight)
@@ -34,7 +41,16 @@ seed_unit('Päckchen', 'PK', 1.0, :piece)
 seed_unit('Dutzend', 'Dtzd', 12.0, :piece)
 seed_unit('Gros', 'gr', 144.0, :piece)
 
+seed_language('de', 'deu', 'Deutsch')
+seed_language('en', 'eng', 'English')
+
+User.find_each do |user|
+  user.language = Language.first unless user.language
+  user.save
+end
+
 Blog.find_each(&:save)
 Recipe.find_each(&:save)
 Ingredient.find_each(&:save)
-User.find_each(&:save)
+
+
