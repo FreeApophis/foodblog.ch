@@ -68,15 +68,20 @@ en:
     blog:
       create:
         new_blog_article: "New Blog Article %{article} written by %{user}"
+        which_was_deleted: Which has already been deleted
       view:
         view_blog_article: "Blog Article %{article} viewed by %{user}"
+        which_was_deleted: Which has already been deleted
     comment:
       create:
         new_comment: "%{user} has written new comment in %{commentable}"
+        which_was_deleted: Which has already been deleted
     recipe:
       create:
+        which_was_deleted: Which has already been deleted
         new_recipe: "New Recipe %{recipe} published by %{user}"
       update:
+        which_was_deleted: Which has already been deleted
         update_recipe: "Recipe %{recipe} updated by %{user}"
 
 

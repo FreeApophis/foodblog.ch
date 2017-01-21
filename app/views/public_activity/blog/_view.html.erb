@@ -1,5 +1,8 @@
 <%= render_feed_event activity, 'newspaper' do %>
-  <% a = link_to(activity.trackable.title, activity.trackable) %>
+  <% a = t '.which_was_deleted' %>
+  <% if activity.trackable %>
+    <% a = link_to(activity.trackable.name, activity.trackable) %>
+  <% end %>
   <% u = activity.owner ? link_to(activity.owner.name, activity.owner) : t(:guest, scope: :application) %>
   <%= t('.view_blog_article', article: a, user: u).html_safe%>
 <% end %>

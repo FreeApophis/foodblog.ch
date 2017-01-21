@@ -68,16 +68,21 @@ de:
     blog:
       create:
         new_blog_article: "Neuer Blog-Eintrag %{article} geschrieben von %{user}"
+        which_was_deleted: welcher bereits gelöscht wurde
       view:
         view_blog_article: "Blog-Eintrag %{article} angeschaut von %{user}"
+        which_was_deleted: welcher bereits gelöscht wurde
     comment:
       create:
         new_comment: "%{user} hat einen neuen Kommentar verfasst %{commentable}"
+        which_was_deleted: welcher bereits gelöscht wurde
     recipe:
       create:
         new_recipe: "Neues Rezept %{recipe} veröffentlicht von %{user}"
+        which_was_deleted: welches bereits gelöscht wurde
       update:
         update_recipe: "Rezept %{recipe} aktualisiert von %{user}"
+        which_was_deleted: welches bereits gelöscht wurde
 
 
   # View Translations
