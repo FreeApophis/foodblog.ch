@@ -22,6 +22,8 @@ class CommentsController < ApplicationController
   def set_commentable
     if params[:blog_id]
       @commentable = Blog.friendly.find(params[:blog_id])
+    elsif params[:recipe_id]
+      @commentable = Recipe.friendly.find(params[:recipe_id])
     else
       raise 'No commentable object present to comment'
     end

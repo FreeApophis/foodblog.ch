@@ -57,10 +57,10 @@
   </div>
 </div>
 
-<h4 class="ui horizontal divider header">
+<h3 class="ui horizontal divider header">
   <i class="food icon"></i>
   <%= t('.recipe_instructions') %>
-</h4>
+</h3>
 
 <div class="ui stackable divided grid">
   <div class="row">
@@ -81,4 +81,4 @@
   </div>
 </div>
 
-
+<%= render 'comments/comments', commentable: @recipe, comment: @recipe.comments.build %>

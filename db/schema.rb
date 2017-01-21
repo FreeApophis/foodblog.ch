@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170121184113) do
+ActiveRecord::Schema.define(version: 20170121193059) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "trackable_type"
@@ -157,6 +157,7 @@ ActiveRecord::Schema.define(version: 20170121184113) do
     t.integer  "difficulty"
     t.string   "slug"
     t.integer  "view_count",       default: 0, null: false
+    t.integer  "comments_count",   default: 0, null: false
   end
 
   create_table "settings", force: :cascade do |t|

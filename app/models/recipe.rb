@@ -1,5 +1,6 @@
 class Recipe < ApplicationRecord
   include PublicActivity::Common
+  include Commentable
 
   acts_as_taggable
 
