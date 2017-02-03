@@ -1,5 +1,7 @@
-        <%= nivo_slider id: "slider" do %>
+      <div class="theme-light">
+        <%= nivo_slider do %>
           <% @recipe.images.each do |image| %>
             <%= image_tag image.file.url(:slide), title: image.name %>
           <% end %>
         <% end %>
+      </div>

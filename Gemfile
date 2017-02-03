@@ -61,13 +61,16 @@ gem 'acts-as-taggable-on', '~> 4.0'
 gem 'carrierwave'
 gem 'carrierwave_backgrounder'
 gem 'mini_magick'
-gem 'nivo-rails'
+gem 'nivo-rails', github: 'robin850/nivo-rails'
 
 # Activity-Feed
 gem 'public_activity'
 
 # Settings
 gem "rails-settings-cached"
+
+# Tree structure
+gem 'awesome_nested_set'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
