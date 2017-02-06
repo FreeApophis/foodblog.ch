@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @page.name %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @page.slug %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @page.content %>
+</p>
+
+<p>
+  <strong>Parent:</strong>
+  <%= @page.parent_id %>
+</p>
+
+<p>
+  <strong>Left:</strong>
+  <%= @page.left %>
+</p>
+
+<p>
+  <strong>Right:</strong>
+  <%= @page.right %>
+</p>
+
+<%= link_to 'Edit', edit_page_path(@page) %> |
+<%= link_to 'Back', pages_path %>

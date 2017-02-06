@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-
-  root to: "blogs#index"
+  root to: 'blogs#index'
 
   concern :pageable do
     get '(page/:page)', action: :index, on: :collection, as: :page
@@ -23,6 +22,11 @@ Rails.application.routes.draw do
 
 
   resources :blogs, concerns: [:pageable, :commentable]
+  resources :pages do
+    member do
+      get ':children' => 'pages#children', as: :children
+    end
+  end
 
   devise_for :users
   resources :users, only: [:index, :show, :edit, :update, :destroy], concerns: [:pageable]
@@ -33,6 +37,7 @@ Rails.application.routes.draw do
       get ':new' => 'recipes#new', as: :new, constraints: { new: /new/ }
     end
   end
+
   resources :activities, only: [:index]
   resources :settings
   resources :units

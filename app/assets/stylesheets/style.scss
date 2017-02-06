@@ -12,8 +12,17 @@
  *
  *= require semantic_ui/semantic_ui
  *= require nivo
- *= redwine
- *= metro
- *= require_tree .
+ *= require redwine
+ *= require metro
+ *= require jstree
  *= require_self
  */
+
+// Unit and quantity should be next to each other, aligned to the space.
+td.quantity { padding-right: 1px !important; }
+td.unit { padding-left: 1px !important; }
+
+.vakata-context { 
+     z-index:999 !important; 
+} 
+

@@ -234,6 +234,10 @@ en:
       select_image: Select Image
     joined_in: "Joined in %{year}"
     recipes_count: "%{count} Recipes"
+  pages:
+    index:
+      pages: Pages
+      new_page: New Page
 
   # Model Translations
   activerecord: # Model name and attribute overrides

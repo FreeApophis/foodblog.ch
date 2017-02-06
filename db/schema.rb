@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170121193059) do
+ActiveRecord::Schema.define(version: 20170121195038) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "trackable_type"
@@ -97,13 +97,12 @@ ActiveRecord::Schema.define(version: 20170121193059) do
   end
 
   create_table "pages", force: :cascade do |t|
-    t.string   "title"
-    t.string   "sidebar"
-    t.string   "menu_title"
+    t.string   "name"
+    t.string   "slug"
     t.text     "content"
-    t.integer  "left"
+    t.integer  "parent_id"
+    t.integer  "left",                       null: false
     t.integer  "right",                      null: false
-    t.integer  "parent_id",                  null: false
     t.integer  "depth",          default: 0, null: false
     t.integer  "children_count", default: 0, null: false
     t.datetime "created_at",                 null: false

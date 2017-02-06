@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   after_action :verify_policy_scoped, only: :index
 #  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :exception, prepend: true
 
   def set_locale
     if current_user

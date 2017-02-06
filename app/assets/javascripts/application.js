@@ -15,8 +15,7 @@
 //= require turbolinks
 //= require semantic_ui/semantic_ui
 //= require nivo
-//= require_tree .
-
+//= require jstree
 
 var ready = function() {
 
@@ -82,6 +81,22 @@ var ready = function() {
   // Start Nivo-Slider
   $('#slider').nivoSlider();
 
+  // Start JS-Tree
+  $('#tree').jstree({
+    'core' : {
+      'check_callback': true,
+      'data': {
+        'url': function (node) { return node.id === '#' ? '/pages.json' : '/pages/' + node.id + '/children';  }
+      }
+    },
+    "plugins" : [ "contextmenu" ]
+  }).on('create_node.jstree', function(e, data){
+    alert(JSON.stringify(data));
+  }).on('rename_node.jstree', function(e, data){
+    alert(JSON.stringify(data));
+  }).on('delete_node.jstree', function(e, data){
+    alert(JSON.stringify(data));
+  });
 };
 
 $(document).on('turbolinks:load', ready);
