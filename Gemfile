@@ -61,7 +61,7 @@ gem 'acts-as-taggable-on', '~> 4.0'
 gem 'carrierwave'
 gem 'carrierwave_backgrounder'
 gem 'mini_magick'
-gem 'nivo-rails', github: 'robin850/nivo-rails'
+gem 'nivo-rails'
 
 # Activity-Feed
 gem 'public_activity'

@@ -113,7 +113,7 @@ ActiveRecord::Schema.define(version: 20170121195038) do
   end
 
   create_table "preparation_steps", force: :cascade do |t|
-    t.text     "recipe_id",  null: false
+    t.integer  "recipe_id",  null: false
     t.text     "text"
     t.integer  "sort_order", null: false
     t.datetime "created_at", null: false
