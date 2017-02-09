@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception, prepend: true
 
   def set_locale
-    if current_user
+    if current_user && current_user.language
       I18n.locale =  current_user.language.iso_639_1 || I18n.default_locale
     else
       I18n.locale = I18n.default_locale
