@@ -4,9 +4,9 @@ class RecipesController < ApplicationController
   def index
     @tag = params[:tag]
     if @tag
-      @recipes = policy_scope(Recipe).tagged_with(@tag).page(params[:page])
+      @recipes = policy_scope(Recipe).tagged_with(@tag).order(created_at: :desc).page(params[:page])
     else
-      @recipes = policy_scope(Recipe).page(params[:page])
+      @recipes = policy_scope(Recipe).order(created_at: :desc).page(params[:page])
     end
   end
 
