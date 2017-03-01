@@ -19,15 +19,9 @@
 
 var ready = function() {
 
-  // Sign out modal
-  $("a.sign_out").on("click", function(e) {
-    $('#sign_out_modal') .modal({ blurring: true }).modal('show');  
-    e.preventDefault();
-  });
-
-  // Delete out modal
-  $("a.delete_modal").on("click", function(e) {
-    $('#delete_modal') .modal({ blurring: true }).modal('show');  
+  // Open Modal by href anchor
+  $("a.open_modal").on("click", function(e) {
+    $($(this).attr('href')) .modal({ blurring: true }).modal('show');  
     e.preventDefault();
   });
 

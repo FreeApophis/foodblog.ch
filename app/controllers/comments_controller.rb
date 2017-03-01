@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_commentable
+  before_action :set_commentable, only: [:create]
 
   def create
     @comment = Comment.new(comment_params.merge(user: current_user, commentable: @commentable))
@@ -13,7 +13,17 @@ class CommentsController < ApplicationController
     redirect_to @commentable
   end
 
-  private
+  def destroy
+    @comment = Comment.find(params[:id])
+    @commentable = @comment.commentable
+
+    authorize @comment
+    @comment.destroy
+
+    redirect_to @commentable
+  end
+
+private
 
   def comment_params
     params.require(:comment).permit(:comment)

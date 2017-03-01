@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get 'tags(/:query)', to: 'search#tags', as: :search_tags
 
   concern :commentable do
-    resources :comments, only: [:create]
+    resources :comments, shallow: true, only: [:create, :edit, :update, :destroy]
   end
 
 

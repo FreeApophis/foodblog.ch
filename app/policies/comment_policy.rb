@@ -15,7 +15,8 @@ class CommentPolicy < ApplicationPolicy
   end
 
   def update?
-    admin?
+    (@user == @record.user && @record.created_at > DateTime.now - 1) || admin?
+    false
   end
 
   def destroy?

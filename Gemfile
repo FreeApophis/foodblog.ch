@@ -63,6 +63,9 @@ gem 'carrierwave_backgrounder'
 gem 'mini_magick'
 gem 'nivo-rails'
 
+# SPAM protection
+gem "recaptcha", require: "recaptcha/rails"
+
 # Activity-Feed
 gem 'public_activity'
 

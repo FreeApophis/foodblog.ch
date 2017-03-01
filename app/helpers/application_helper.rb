@@ -67,6 +67,11 @@ module ApplicationHelper
     end
   end
 
+  def delete_modal_anchor object, with=true
+    pound_sign = with ? '#' : ''
+    "#{pound_sign}delete_#{object.model_name.param_key}_#{object.id}"
+  end
+
   def delete_modal object, field
     render 'delete_modal', object: object, field: field
   end
