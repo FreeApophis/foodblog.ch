@@ -22,8 +22,8 @@ module ApplicationHelper
     title
   end
 
-  def context_menu text, link, icon_type = nil
-    c = icon_type == :remove ? 'delete_modal item' : 'item'
+  def context_menu text, link, icon_type = nil, modal = false
+    c = modal ? 'open_modal item' : 'item'
     link_to link, class: c do 
       if icon_type
         text.html_safe + icon(icon_type)
@@ -47,7 +47,7 @@ module ApplicationHelper
   end
 
   def destroy_context_action object, field
-    context_action I18n.t('.destroy', scope: [:application, :actions]), '#', :remove
+    context_action I18n.t('.destroy', scope: [:application, :actions]), delete_modal_anchor(object), :remove
     delete_modal(object, field)
   end
 
@@ -73,7 +73,9 @@ module ApplicationHelper
   end
 
   def delete_modal object, field
-    render 'delete_modal', object: object, field: field
+    content_for :modals do
+      render 'delete_modal', object: object, field: field
+    end
   end
 
   def icon icon_class

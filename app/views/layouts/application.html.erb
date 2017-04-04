@@ -26,6 +26,9 @@
       <div class="ui basic segment">
         <%= yield %>
       </div>
+      <div id="modals">
+        <%= yield(:modals) %>
+      </div>
       <%= render 'footer' %>
     </div>
   </div>

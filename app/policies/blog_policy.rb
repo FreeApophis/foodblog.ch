@@ -18,7 +18,7 @@ class BlogPolicy < ApplicationPolicy
     admin?
   end
 
-  def destroy
+  def destroy?
     admin?
   end
 end

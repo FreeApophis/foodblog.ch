@@ -18,9 +18,9 @@
     </div>
   <% end -%>
 
-  <div class="actions">
+  <div class="ui buttons">
     <%= f.submit t(:sign_in, scope: :application), class: 'ui primary button' %>
+    <%= render "devise/shared/links" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>

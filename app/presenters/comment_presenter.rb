@@ -17,7 +17,7 @@ class CommentPresenter < AbstractPresenter
             ''.html_safe
           end +
           if comment_policy.destroy?
-            h.link_to(I18n.t(:destroy, scope: [:application, :actions]), h.delete_modal_anchor(@model), class: 'open_modal') +
+            h.link_to(I18n.t(:destroy, scope: [:application, :actions]), h.delete_modal_anchor(@model), class: 'open_modal', 'data-modal-id':  h.delete_modal_anchor(@model)) +
             h.delete_modal(@model, :comment)
           else
             ''.html_safe

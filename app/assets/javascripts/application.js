@@ -21,7 +21,7 @@ var ready = function() {
 
   // Open Modal by href anchor
   $("a.open_modal").on("click", function(e) {
-    $($(this).attr('href')) .modal({ blurring: true }).modal('show');  
+    $($(this).data('modal-id')) .modal({ blurring: true }).modal('show');  
     e.preventDefault();
   });
 
