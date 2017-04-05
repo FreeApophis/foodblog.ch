@@ -1,0 +1,33 @@
+default:
+  toolbar:
+    - bold italic underline strikethrough superscript subscript | image link table hr | bullist numlist | undo redo | forecolor backcolor
+  plugins:
+    - image
+    - imagetools
+    - lists
+    - advlist
+    - link
+    - table
+    - wordcount
+    - textcolor
+    - colorpicker
+    - hr
+    - visualblocks
+
+all:
+  toolbar:
+    - bold italic underline strikethrough | image link table | undo redo | charmap forecolor backcolor emoticons hr spellchecker
+  plugins:
+    - image
+    - imagetools
+    - link
+    - table
+    - wordcount
+    - advlist
+    - charmap
+    - textcolor
+    - colorpicker
+    - emoticons
+    - hr
+    - spellchecker
+    - visualblocks

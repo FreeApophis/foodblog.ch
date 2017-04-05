@@ -33,7 +33,7 @@
 
   <div class="field">
     <%= f.label :text %>
-    <%= f.text_area :text %>
+    <%= f.text_area :text, class: 'tinymce' %>
   </div>
 
   <div class="field">
@@ -45,3 +45,5 @@
     <%= f.submit class: 'ui primary button' %>
   </div>
 <% end %>
+
+<%= tinymce %>

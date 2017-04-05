@@ -57,6 +57,9 @@ gem 'friendly_id'
 # Tagging
 gem 'acts-as-taggable-on', '~> 4.0'
 
+# WYSIWYG Editor
+gem 'tinymce-rails'
+
 # Images
 gem 'carrierwave'
 gem 'carrierwave_backgrounder'
