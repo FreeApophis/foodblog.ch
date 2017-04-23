@@ -16,6 +16,7 @@
         <i class="options icon"></i>
       </a>
     <% else %>
+      <%= active_menu_link new_user_registration_path, t('.register'), 'user plus' %>
       <%= link_to '#sign_in', class: 'ui open_modal item', 'data-modal-id': '#sign_in' do %>
         <i class="sign in icon"></i>
         <%= t '.sign_in' %>

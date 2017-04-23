@@ -133,3 +133,12 @@ ol.preparation > li:before {
 
 li ol, li ul {margin-top:6px;}
 ol.preparation ol li:last-child {margin-bottom:0;}
+
+#error_explanation {
+  border: 1px #aa0000 solid;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  background: #ffcccc;
+}

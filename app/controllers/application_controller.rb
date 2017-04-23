@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   include Pundit
 
   before_action :set_locale
+  before_action :configure_permitted_parameters, if: :devise_controller?
   after_action :verify_authorized, except: :index, unless: :devise_controller?
   after_action :verify_policy_scoped, only: :index
 #  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
@@ -25,5 +26,10 @@ class ApplicationController < ActionController::Base
   def viewed model
     model.increment :view_count, 1
     model.save
+  end
+
+  protected
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
 end

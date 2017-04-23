@@ -7,8 +7,8 @@ de:
     guest: Gast
     ago: zurück
     step: Schritt
-    sign_in: Einloggen
-    sign_out: Ausloggen
+    sign_in: Anmelden
+    sign_out: Abmelden
     more: mehr
     administration: Administration
     created_message: "%{model} erfolgreich erstellt."
@@ -30,16 +30,17 @@ de:
       hardest: Hardest
       unrated: nicht bewertet
     menu:
-      sign_in: Einloggen
-      sign_out: Ausloggen
+      sign_in: Anmelden
+      sign_out: Abmelden
+      register: Registrieren
       blog: Blog
       recipes: Rezepte
       ingredients: Zutaten
     sign_out_modal:
-      sign_out: Ausloggen
-      are_you_sure_to_sign_out: Bist du sicher, dass du dich Ausloggen möchtest?
+      sign_out: Abmelden
+      are_you_sure_to_sign_out: Bist du sicher, dass du dich Abmelden möchtest?
     sign_in_modal:
-      sign_in: Einloggen
+      sign_in: Anmelden
     delete_modal:
       delete: Löschen
       are_you_sure_to_delete: Bist du sicher, dass du das Löschen möchtest?
@@ -86,6 +87,15 @@ de:
       update:
         update_recipe: "Rezept %{recipe} aktualisiert von %{user}"
         which_was_deleted: welches bereits gelöscht wurde
+  devise:
+    registrations:
+      new:
+        register: Registrieren
+      user:
+        signed_up: Sie haben sich erfolgreich registriert und k&ouml;nnen nun bereits Rezepte erstellen
+    shared:
+      links:
+        sign_in: Anmelden
 
 
   # View Translations

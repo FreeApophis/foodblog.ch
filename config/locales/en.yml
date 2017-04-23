@@ -32,6 +32,7 @@ en:
     menu:
       sign_in: Sign In
       sign_out: Sign Out
+      register: Register
       blog: Blog
       recipes: Recipes
       ingredients: Ingredients
@@ -86,7 +87,15 @@ en:
       update:
         which_was_deleted: Which has already been deleted
         update_recipe: "Recipe %{recipe} updated by %{user}"
-
+  devise:
+    registrations:
+      new:
+        register: Register
+      user:
+        signed_up: You have been successfully registered and can now already write new recipes
+    shared:
+      links:
+        sign_in: Sign in
 
   # View Translations
   activities:
