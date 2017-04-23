@@ -20,7 +20,7 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :email, format: { with: Devise.email_regexp }
 
-  belongs_to :language
+  belongs_to :locale
   has_many :recipes, foreign_key: :author_id
   has_many :blogs, foreign_key: :author_id
   has_many :comments

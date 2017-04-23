@@ -242,7 +242,7 @@ en:
       name_description: The name of the user
       description_description: The description of the user
       select_role: Select Role
-      select_language: Select Language
+      select_locale: Select Language
       select_image: Select Image
     joined_in: "Joined in %{year}"
     recipes_count: "%{count} Recipes"

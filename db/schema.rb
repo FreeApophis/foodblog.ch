@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170423120743) do
+ActiveRecord::Schema.define(version: 20170423134948) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "trackable_type"
@@ -94,6 +94,16 @@ ActiveRecord::Schema.define(version: 20170423120743) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "locales", force: :cascade do |t|
+    t.string   "name"
+    t.string   "english_name"
+    t.string   "locale"
+    t.string   "language_code"
+    t.string   "country_code"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "pages", force: :cascade do |t|
@@ -230,10 +240,10 @@ ActiveRecord::Schema.define(version: 20170423120743) do
     t.text     "description"
     t.string   "slug"
     t.integer  "color",                  default: 0,  null: false
-    t.integer  "language_id"
+    t.integer  "locale_id"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["language_id"], name: "index_users_on_language_id"
+    t.index ["locale_id"], name: "index_users_on_locale_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end

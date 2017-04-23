@@ -41,14 +41,14 @@
     </div>
 
     <div class="field">
-      <%= f.label :language %>
+      <%= f.label :locale %>
         <div class="ui selection dropdown">
-          <%= f.hidden_field :language_id %>
+          <%= f.hidden_field :locale_id %>
           <i class="dropdown icon"></i>
-          <div class="default text"><%= t '.select_language' %></div>
+          <div class="default text"><%= t '.select_locale' %></div>
           <div class="menu">
-            <% Language.all.each do |language| %>
-              <div class="item" data-value="<%= language.id %>"><%= language.name %></div>
+            <% Locale.all.each do |locale| %>
+              <div class="item" data-value="<%= locale.id %>"><%= locale.name %></div>
             <% end %>
           </div>
         </div>

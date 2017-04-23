@@ -243,7 +243,7 @@ de:
       name_description: Name des Benutzers 
       description_description: Beschreibung des Benutzers
       select_role: Rolle auswählen
-      select_language: Wähle eine Sprache
+      select_locale: Wähle eine Sprache
       select_image: Wähle ein Bild aus
     joined_in: "Beigetreten %{year}"
     recipes_count: "%{count} Rezepte"
