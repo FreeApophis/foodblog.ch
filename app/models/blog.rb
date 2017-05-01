@@ -5,6 +5,7 @@ class Blog < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :slugged
 
+  has_paper_trail
   paginates_per 6
 
   belongs_to :author, class_name: 'User'

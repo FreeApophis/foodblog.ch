@@ -57,6 +57,9 @@ gem 'friendly_id'
 # Tagging
 gem 'acts-as-taggable-on', '~> 4.0'
 
+# Audit
+gem 'paper_trail'
+
 # WYSIWYG Editor
 gem 'tinymce-rails'
 

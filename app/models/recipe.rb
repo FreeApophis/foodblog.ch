@@ -2,6 +2,7 @@ class Recipe < ApplicationRecord
   include PublicActivity::Common
   include Commentable
 
+  has_paper_trail
   acts_as_taggable
 
   extend FriendlyId
