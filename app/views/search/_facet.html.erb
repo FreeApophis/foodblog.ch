@@ -1,0 +1,22 @@
+<% facets = @search.facet(facet).rows %>
+<% selected = nil %>
+
+<% if facets.any? %>
+    <div class="">
+      <h4><%= human_name %></h4>
+      <% route_builder =  params.clone.permit(:q, :author, :difficulty, :tag) %>
+      <div class="ui link list">
+        <% facets.each do |f| %>
+          <% if params[facet].blank? or params[facet] != f.value %>
+            <% route_builder[facet] = f.value %>
+            <div class="item"><%= link_to f.value, route_builder %>  [<%= f.count %>]</div>
+          <% else %>
+            <% selected = f.value %>
+            <% route_builder[facet] = nil %>
+            <div class="item"><%= link_to f.value, route_builder %> [&#x2714;]</div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+<% end %>
+

@@ -1,0 +1,32 @@
+<%= link_to result, class: "item" do %>
+  <div class="ui small image">
+    <% if result.respond_to? :images %>
+      <% if result.images.any? %>
+        <%= image_tag result.images.sample.file.url(:slide) %>
+      <% else %>
+        <%= image_tag "/default.png" %>
+      <% end %>
+    <% end %>
+    <% if result.respond_to? :header_image %>
+        <%= image_tag result.header_image.url(:header) %>
+    <% end %>
+  </div>
+  <div class="content">
+    <div class="header"><%= result.name %></div>
+      <div class="description">
+        <p>
+          <% if hit.highlights.any? %>
+            <%= hit.highlights.first.format { |fragment| content_tag(:mark, fragment) }.html_safe %>
+          <% else %>
+            <% result.description if result.respond_to? :description %>
+            <% result.teaser if result.respond_to? :teaser %>
+          <% end %>
+        </p>
+      </div>
+      <div class="meta">
+        <%= image_tag(result.author.avatar_url(:thumb), class: 'ui avatar image') + ' ' + result.author.name %>
+        <div class="ui label"><%= result.class.to_s.humanize %></div>
+        <div class="ui label"><%= sprintf(' %.3f', hit.score)  %></div>
+      </div>
+  </div>
+<% end %>

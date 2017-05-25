@@ -68,6 +68,8 @@ de:
     recipes: Rezepte
     tags: Tags
     ingredients: Zutaten
+    search:
+      search: Suche
   public_activity:
     blog:
       create:

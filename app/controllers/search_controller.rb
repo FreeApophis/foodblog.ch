@@ -33,6 +33,22 @@ class SearchController < ApplicationController
   end
 
   def full_search
+    @search = Sunspot.search Blog, Recipe do
+      fulltext params[:q] do
+        highlight :description
+      end
+
+      facet(:author)
+      facet(:difficulty)
+      facet(:tag)
+
+      with(:author, params[:author]) if params[:author].present?
+      with(:difficulty, params[:difficulty]) if params[:difficulty].present?
+      with(:tag, params[:tag]) if params[:tag].present?
+
+      paginate page: params[:page]
+    end
+
   end
 
   def json_search

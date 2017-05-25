@@ -1,2 +1,40 @@
 <h2><%= context_title t('.search') %></h2>
 
+<%= form_tag(search_path, method: :get, class: 'ui form') do %>
+    <div class="field">
+      <%= label_tag :q, 'Search' %>
+      <%= search_field_tag :q, params[:q] %>
+    </div>
+<% end %>
+
+<h4 class="ui horizontal divider header">
+  <i class="filter icon"></i>
+</h4>
+
+<div class="ui grid">
+  <%= render 'facet', facet: :author, human_name: "Autor" %>
+  <%= render 'facet', facet: :difficulty, human_name: "Schwierigkeit" %>
+  <%= render 'facet', facet: :tag, human_name: "Tag"%>
+</div>
+
+
+<h4 class="ui horizontal divider header">
+  <i class="search icon"></i>
+</h4>
+
+
+<div class="search-result">
+  Results <%= @search.total %>
+</div>
+
+
+
+<div class="ui link items">
+  <% if @search.respond_to? :each_hit_with_result %>
+    <% @search.each_hit_with_result do |hit, result| -%>
+      <%= render 'search_result', hit: hit, result: result %>
+    <% end %>
+  <% end %>
+</div>
+
+<%= paginate @search.hits %>

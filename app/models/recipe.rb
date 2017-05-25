@@ -10,6 +10,24 @@ class Recipe < ApplicationRecord
 
   paginates_per 16
 
+  searchable do
+    text :name, :stored => true
+    text :description, :stored => true
+    text :preparation_steps, :stored => true do
+      preparation_steps.map { |step| step.text }
+    end
+
+    string :author do
+      author.name
+    end
+
+    integer :difficulty
+
+    string :tag, multiple: true do
+      tags.map { |tag| tag.name }
+    end
+  end
+
   validates :name, presence: true
   validates_numericality_of :portions, greater_than_or_equal_to: 1
 

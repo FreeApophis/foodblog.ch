@@ -25,6 +25,9 @@ class RecipePresenter < AbstractPresenter
     end
   end
 
+  def as_line
+  end
+
   def tags
     m.tag_list.map { |t| h.link_to(t, h.tag_recipes_path(t), class: 'ui tag label') }.join(' ').html_safe
   end
