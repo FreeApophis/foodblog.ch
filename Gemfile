@@ -87,6 +87,8 @@ gem 'awesome_nested_set'
 # mysql backend
 gem 'mysql2'
 
+gem 'yaml_db'
+
 # search engine
 gem 'sunspot_rails'
 
