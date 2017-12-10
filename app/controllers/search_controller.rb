@@ -15,7 +15,27 @@ class SearchController < ApplicationController
     end
   end
 
+  def ingredients
+    respond_to do |format|
+      format.json { render json: ingredient_search }
+    end
+  end
+
   private
+
+  def ingredient_search
+    if @query
+      results = [{ name: @query, value: -1}]
+    else
+      results = []
+    end
+
+    policy_scope(Ingredient).where("ingredients.name LIKE \"#{@query}%\"").limit(10).order(:name).each do |ingredient|
+      results << { name: ingredient.name, value: ingredient.id }
+    end
+
+    { success: true, results: results }
+  end
 
   def tag_search
     if @query

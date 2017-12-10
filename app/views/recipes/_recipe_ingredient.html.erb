@@ -19,15 +19,16 @@
     </div>
     <div class="five wide field">
       <%= f.label :ingredient %>
-      <div class="ui search selection dropdown">
+      <div class="ingredient_selection ui search selection dropdown">
         <%= f.hidden_field :ingredient_id %>
         <i class="dropdown icon"></i>
+        <input type="text" class="search">
         <div class="default text"><%= t '.select_ingredient' %></div>
-        <div class="menu">
-          <% Ingredient.all.order(:name).each do |ingredient| %>
-            <div class="item" data-value="<%= ingredient.id %>"><%= ingredient.name %></div>
-          <% end %>
-        </div>
+        <% if f.object.id %>
+          <div class="menu">
+            <div class="item" data-value="<%= f.object.ingredient.id %>"><%= f.object.ingredient.name %></div>
+          </div>
+        <% end %>
       </div>
     </div>
     <div class="three wide field">

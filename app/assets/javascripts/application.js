@@ -19,7 +19,6 @@
 //= require jstree
 
 var ready = function() {
-
   // Open Modal by href anchor
   $("a.open_modal").on("click", function(e) {
     $($(this).data('modal-id')) .modal({ blurring: true }).modal('show');  
@@ -49,14 +48,15 @@ var ready = function() {
     }
   });
 
-  // Tag search and selection 
+  // Tag search and selection
   // (needs to be after the general selection dropdowns)
   $('#tag_selection').dropdown({
     apiSettings: {
       url: '/tags/{query}'
     }
   });
-	
+
+  // Ingredient search and selection
   // Remove Fields in Recipe
   $('form').on('click', '.remove_fields', function(event) {
      $(this).prev('input[type=hidden]').val('1');
@@ -70,6 +70,14 @@ var ready = function() {
     regexp = new RegExp($(this).data('id'), 'g');
     $(this).before($(this).data('fields').replace(regexp, time));
     $('.ui.dropdown').dropdown();
+
+    // (needs to be after the general selection dropdowns)
+    $('.ingredient_selection').dropdown({
+      apiSettings: {
+        url: '/ingredients/search/{query}'
+      }
+    });
+
     event.preventDefault();
   });
 

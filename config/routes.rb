@@ -31,7 +31,12 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, only: [:index, :show, :edit, :update, :destroy], concerns: [:pageable]
 
-  resources :ingredients, concerns: [:pageable]
+  resources :ingredients, concerns: [:pageable] do
+    collection do
+      get 'search(/:query)', to: 'search#ingredients', as: :search_ingredients
+    end
+  end
+
   resources :recipes, concerns: [:pageable, :commentable, :portionable, :taggable] do
     collection do
       get ':new' => 'recipes#new', as: :new, constraints: { new: /new/ }

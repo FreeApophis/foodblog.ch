@@ -62,9 +62,12 @@ class RecipePresenter < AbstractPresenter
 
   def tags_selection f
     h.content_tag(:div, id: 'tag_selection', class: 'ui multiple search selection dropdown') do
-      f.hidden_field(:tag_list, value: m.tag_list.join(',')) + h.icon(:dropdown) +
+      f.hidden_field(:tag_list, value: m.tags.join(',')) + h.icon(:dropdown) +
       h.content_tag(:div, I18n.t('select_tags', scope: :recipes), class: 'default text') +
       h.content_tag(:div, class: 'menu') do
+        m.tags.each do |tag|
+          h.concat(h.content_tag(:div, tag, class: 'item'))
+        end
       end
     end
   end

@@ -12,4 +12,8 @@ class SearchPolicy < ApplicationPolicy
   def tags?
     true
   end
+
+  def ingredients?
+    true
+  end
 end
