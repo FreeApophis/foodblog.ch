@@ -84,10 +84,10 @@ gem 'awesome_nested_set'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'yaml_db'
+
 # mysql backend
 gem 'mysql2'
-
-gem 'yaml_db'
 
 # search engine
 gem 'sunspot_rails'
